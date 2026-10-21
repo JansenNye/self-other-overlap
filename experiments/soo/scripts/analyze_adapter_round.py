@@ -1,9 +1,10 @@
-"""Pre-specified analysis for the existing-adapter round (ADAPTER_ROUND.md).
+"""Exploratory analysis for the existing-adapter round (docs/plans/README.md).
 
 Usage: python analyze_adapter_round.py OUTPUT_DIR
 Reads every completed run under OUTPUT_DIR (a manifest.json marks completion),
 writes OUTPUT_DIR/analysis.json and OUTPUT_DIR/analysis.md. Thresholds are the
-exploratory ones written in ADAPTER_ROUND.md before the run was launched.
+exploratory rules in the archived run plans; timing evidence and versions are
+documented in docs/plans/README.md.
 """
 
 import json

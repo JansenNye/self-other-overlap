@@ -168,3 +168,32 @@ The `analyze_*_round.py` scripts retain the original frozen-run analysis interfa
 they expect the corresponding run manifest and raw outputs, not only the public
 aggregate summary. Evaluation responses can be extracted from the committed archive (see `RESULTS.md`);
 full frozen-run manifests and activation measurements are separate inputs.
+
+## Which analysis supports each post table?
+
+The post tables are editorial selections and rounded combinations of run readouts;
+these scripts do not emit the final blog HTML. The table below maps their inputs and
+source analyses. Run IDs in `published/study2-runs.json` and
+`published/study2-summaries.json` distinguish models and follow-ups. The
+[archived plans](plans/README.md) identify the version captured for each run, and
+[ANALYSIS.md](ANALYSIS.md) defines the thresholds and their limitations.
+
+All script paths below are relative to `experiments/soo/scripts/`.
+
+| Post section / table | Source scripts and run families | Required inputs |
+|---|---|---|
+| First post: replication and confounds | `train.py` / `evaluate.py` in the package; `paired_tests.py` and `rescore.py` | Original first-study multiseed responses are not fully archived in this release. |
+| Adapter setup and burglar-task results | Training logs in the public adapter bundles; base/adapter rows of `analyze_layer_round.py`, `analyze_bisect_round.py` and `analyze_kimi_loc.py` (`layers-*`, `qwenloc-*`, `kimiloc-*`) | Evaluation summaries; training logs for recipe columns. |
+| Representation changes at the training layer | `analyze_adapter_round.py` (`adapters-*`, including endpoint-offset follow-ups) | Per-pair measurements and summaries, not just behavioral responses. |
+| Constant replacements do not reproduce the adapters' behavior | `analyze_constant_round.py`, then `intent_language_check.py` (`constants-*`) | Summaries and response JSONL; optional constant statistics. |
+| Which adapter modules change behavior? | `analyze_layer_round.py`; `analyze_bisect_round.py` for Qwen; `analyze_kimi_loc.py` for Kimi | `layers-*`, `qwenloc-*`, `kimiloc-*` summaries; launch condition lists for Qwen/Kimi. |
+| Smallest successful subsets I found | `analyze_bisect_round.py`, `analyze_steer_round.py`, `analyze_kimi_joint.py` | `bisect-*` / `bisect2-*` / `qwenloc-*` localization; `steer-*` / `dose-*` / `kimijoint-*` offsets and launch metadata. |
+| Representation changes under fixed offsets | `analyze_steer_round.py` (`steer-*`, `dose-*`) | Per-condition overlap summaries in addition to behavioral summaries. |
+| What the Kimi adapter seems to change | `analyze_kimi_loc.py`, `analyze_kimi_joint.py` | Response JSONL, including think markers, and launch metadata. |
+| Earlier Kimi pilot and layer selection (context, not a selected final-adapter table) | `analyze_kimi_round.py`, `analyze_kimi_sweep.py` (`kimi-*`, `kimisweep-*`) | Pilot/sweep summaries, responses and launch metadata. |
+
+The shared module deliberately preserves separate rules for constant replacement,
+Kimi layer selection and Kimi truncation. They are not interchangeable analyses.
+Each script's module docstring gives its positional arguments. Raw behavioral
+responses are public; representation tensors and complete frozen-run directories
+remain separate inputs. Missing inputs must not be interpreted as a null result.

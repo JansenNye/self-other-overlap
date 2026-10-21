@@ -117,7 +117,7 @@ def parser():
     p.add_argument("--adapter", type=Path, help="local PEFT adapter; compared separately to base")
     p.add_argument("--adapter-layers", help="restrict the adapter's LoRA modules to these layers (soo_experiments.soo.lora_subset spec)")
     p.add_argument("--adapter-modules", help="restrict the adapter to these target modules, e.g. v_proj")
-    p.add_argument("--band-deltas", type=Path, help="band deltas .pt (scripts/extract_band_deltas.py): fixed offsets on the base model (STEER_ROUND.md)")
+    p.add_argument("--band-deltas", type=Path, help="band deltas .pt (scripts/extract_band_deltas.py): fixed offsets on the base model (docs/plans/README.md)")
     p.add_argument("--band-modules", nargs="+", default=["v_proj"], help="which projections' band offsets to measure, each as its own condition")
     p.add_argument("--band-token-mode", choices=("last", "all"), default="last")
     p.add_argument("--band-alpha", type=float, default=1.)

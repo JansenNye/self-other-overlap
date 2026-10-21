@@ -1,4 +1,4 @@
-"""Pre-specified readout for a bisection round (BISECT_ROUND.md).
+"""Exploratory readout for a bisection round (docs/plans/README.md).
 
 Usage: python analyze_bisect_round.py OUTPUT_DIR TRAIN_LAYER LAUNCH_JSON
 Reads output/eval/<condition>_<orient>_<scenario>_<suffix>_summary.json (+ .jsonl) and
@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import sys
 
-from analyze_layer_round import BASE, ORIENTS, REFERENCE, SCENARIOS, fmt_rates, load, verdict, wilson
+from analysis_common import BASE, ORIENTS, REFERENCE, SCENARIOS, fmt_rates, load, verdict, wilson
 
 
 def subset_label(args: str) -> str | None:
@@ -48,7 +48,7 @@ def main():
             spec = subset_label(launch["conditions"][cond]) or ("all modules" if cond == REFERENCE else "—")
             lines.append(f"| {cond} | {spec} | {fmt_rates(r, 'main')} | {ci} | {fmt_rates(r, 'treasure_hunt')} | {persp} | {kept} |")
         lines.append("")
-    lines += ["## Verdicts against the pre-specified rule", ""]
+    lines += ["## Verdicts against the published exploratory rule", ""]
     ref = runs.get(REFERENCE, {})
     if ref:
         lines.append("- " + REFERENCE + " (reference): " + "; ".join(
@@ -72,7 +72,7 @@ def main():
         for s in r["samples"]:
             lines.append(f"- [{s['label']}] {s['response'].replace(chr(10), ' ')[:160]}")
         lines.append("")
-    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in BISECT_ROUND.md", "train_layer": train_layer, "missing": missing,
+    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in docs/plans/README.md", "train_layer": train_layer, "missing": missing,
                                                    "conditions": launch["conditions"], "runs": runs, "verdicts": verdicts}, indent=2) + "\n")
     (out / "analysis.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))

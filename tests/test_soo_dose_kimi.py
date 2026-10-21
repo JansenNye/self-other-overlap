@@ -222,7 +222,7 @@ if __name__ == "__main__":
 
 
 class KimiSweepRuleTests(unittest.TestCase):
-    """KIMI_SWEEP_ROUND.md: an adapter works only if it lowers deception and raises honesty in both orientations."""
+    """docs/plans/README.md: an adapter works only if it lowers deception and raises honesty in both orientations."""
 
     @classmethod
     def setUpClass(cls):
@@ -266,7 +266,7 @@ class KimiSweepRuleTests(unittest.TestCase):
 
 
 class KimiLocRuleTests(unittest.TestCase):
-    """KIMI_LOC_ROUND.md: a subset that reproduces the adapter's deceptive rate by pushing responses into truncation is
+    """docs/plans/README.md: a subset that reproduces the adapter's deceptive rate by pushing responses into truncation is
     budget-bound, not reproducing; the think-rate split separates the L32 kind of change from the L56 kind."""
 
     @classmethod
@@ -317,7 +317,7 @@ class KimiLocRuleTests(unittest.TestCase):
 
 
 class JointOffsetTests(unittest.TestCase):
-    """KIMI_JOINT_ROUND.md: q_proj and v_proj band offsets added together, restricted to a layer range, with a matched
+    """docs/plans/README.md: q_proj and v_proj band offsets added together, restricted to a layer range, with a matched
     random control over both projections; and the round's readout."""
 
     @classmethod

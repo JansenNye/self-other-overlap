@@ -30,14 +30,14 @@ generated token, the position the overlap measurements read.
 `positions='content'` covers only the user message's own tokens (the text the
 caller placed in the user turn, no chat-template tokens, no generated tokens);
 the caller supplies each prompt's token span with set_spans() before generating
-(DOSE_ROUND.md).
+(docs/plans/README.md).
 
 Constant replacement (mode 'replace', second study): h <- (1-alpha) h + alpha c
 sets the layer's output to a fixed vector c at the masked positions, with no
 training. It is the hand-built version of the degenerate solution the
-last-token LoRA loss converges to (FINDINGS2.md rounds 2-2c); c may be an
+last-token LoRA loss converges to (docs/EXPERIMENTS.md, representation measurements); c may be an
 adapter's measured constant, the base model's mean output, zero, or a random
-vector of matched norm (scripts/make_constants.py, CONSTANT_ROUND.md).
+vector of matched norm (scripts/make_constants.py, docs/plans/README.md).
 """
 
 import atexit
@@ -326,7 +326,7 @@ def apply_steering(
             positions._handle.remove()
 
 
-# --- Band steering: a trained LoRA band's mean deltas as fixed offsets (STEER_ROUND.md) ---
+# --- Band steering: a trained LoRA band's mean deltas as fixed offsets (docs/plans/README.md) ---
 #
 # The bisection round put the adapters' room-task effect in a contiguous band
 # of v_proj LoRA deltas below the read-out layer. Each such delta is an
@@ -397,7 +397,7 @@ def get_band_offsets(data: dict, module: str, token_mode: str, layers: set[int] 
     'in_proj_qkv.v' with the channels outside the slice zeroed), keyed 'layer:module' (float32).
 
     Several whole projections joined by commas ('q_proj,v_proj') give the union of their offsets, added together
-    (KIMI_JOINT_ROUND.md). `layers` keeps only those layers' offsets."""
+    (docs/plans/README.md). `layers` keeps only those layers' offsets."""
     from .lora_subset import split_module
 
     if token_mode not in BAND_TOKEN_MODES:

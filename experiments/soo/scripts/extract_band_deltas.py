@@ -1,4 +1,4 @@
-"""Measure a LoRA band's mean deltas for band steering (STEER_ROUND.md).
+"""Measure a LoRA band's mean deltas for band steering (docs/plans/README.md).
 
 For one adapter and a set of (layer, module) LoRA modules, record the delta the
 adapter adds to each projection's output, d(x) = s B A x, on a prompt set:

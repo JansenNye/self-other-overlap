@@ -139,7 +139,7 @@ def main() -> None:
     parser.add_argument("--steer-random-seed", type=int, help="control: replace the vector with a random one of matched norm")
     parser.add_argument("--steer-constants", type=Path, help="constants .pt from scripts/make_constants.py (mode replace)")
     parser.add_argument("--steer-constant", help="named constant in --steer-constants, e.g. adapter_seed0, base_mean, zero")
-    parser.add_argument("--band-deltas", type=Path, help="band deltas .pt from scripts/extract_band_deltas.py: a LoRA band's mean deltas added as fixed offsets (STEER_ROUND.md)")
+    parser.add_argument("--band-deltas", type=Path, help="band deltas .pt from scripts/extract_band_deltas.py: a LoRA band's mean deltas added as fixed offsets (docs/plans/README.md)")
     parser.add_argument("--band-module", choices=["v_proj", "q_proj", "q_proj,v_proj", "in_proj_qkv", "in_proj_qkv.v", "in_proj_qkv.qk"], default="v_proj",
                         help="which projection's band offsets to add (in_proj_qkv slices: Qwen3.5/3.8 DeltaNet value or query-key channels; "
                              "q_proj,v_proj: both projections' offsets at once)")

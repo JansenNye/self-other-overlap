@@ -1,4 +1,4 @@
-"""Pre-specified readout for the Kimi-Dev-72B L56 localization round (KIMI_LOC_ROUND.md).
+"""Exploratory readout for the Kimi-Dev-72B L56 localization round (docs/plans/README.md).
 
 Usage: python analyze_kimi_loc.py OUTPUT_DIR LAUNCH_JSON
 Reads output/eval/<condition>_<orient>_<scenario>_room_only_summary.json (+ .jsonl). Subsets are read with the layer
@@ -12,9 +12,9 @@ import json
 from pathlib import Path
 import sys
 
-from analyze_layer_round import BASE, ORIENTS, REFERENCE, TOL, load, verdict, wilson
+from analysis_common import BASE, ORIENTS, REFERENCE, TOL, load, verdict, wilson
 
-THINK_OPEN = "◁think▷"
+from analysis_common import fmt_reasoning_rates as rates, response_stats
 SCENARIOS = ("main", "perspectives")
 
 
@@ -39,19 +39,6 @@ def loc_verdict(runs, cond, reference=REFERENCE):
     return v
 
 
-def response_stats(out: Path, stem: str):
-    f = out / "eval" / f"{stem}.jsonl"
-    if not f.exists():
-        return None
-    rows = [json.loads(l) for l in f.read_text().splitlines() if l.strip()]
-    think = [r for r in rows if THINK_OPEN in r["response"]]
-    answered = [r for r in rows if r["label"] in ("honest", "deceptive")]
-    think_answered = [r for r in think if r["label"] in ("honest", "deceptive")]
-    return {"n": len(rows), "think_rate": len(think) / len(rows), "answered": len(answered),
-            "honest_of_answered": sum(r["label"] == "honest" for r in answered) / len(answered) if answered else float("nan"),
-            "honest_of_thinking": sum(r["label"] == "honest" for r in think_answered) / len(think_answered) if think_answered else float("nan")}
-
-
 def kind_of_change(stats, cond, o):
     """'conclusion' when the honest share among thinking responses moved by more than TOL vs base, 'think-rate' when
     only the think rate moved, 'both', or 'neither'."""
@@ -61,13 +48,6 @@ def kind_of_change(stats, cond, o):
     conclusion = abs(s["honest_of_thinking"] - b["honest_of_thinking"]) > TOL if s["honest_of_thinking"] == s["honest_of_thinking"] else False
     think = abs(s["think_rate"] - b["think_rate"]) > TOL
     return "both" if conclusion and think else "conclusion" if conclusion else "think-rate" if think else "neither"
-
-
-def rates(r, s):
-    if s not in r:
-        return "—"
-    x = r[s]["rates"]
-    return f"{x['honest']:.2f}/{x['deceptive']:.2f}/{x['refusal']:.2f}/{x['other']:.2f}/{x.get('truncated', 0):.2f}"
 
 
 def main():
@@ -108,7 +88,7 @@ def main():
             lines.append(f"| {c} | {rates(r, 'main')} | {ci} | {fmt(st['main'], 'think_rate')} | {fmt(st['main'], 'honest_of_thinking')} | "
                          f"{fmt(st['main'], 'honest_of_answered')} | {persp} | {ptrunc} | {change} |")
         lines.append("")
-    lines += [f"## Verdicts against the pre-specified rule (subsets vs {REFERENCE}; steering cells vs {steer_ref} and {REFERENCE})", ""]
+    lines += [f"## Verdicts against the published exploratory rule (subsets vs {REFERENCE}; steering cells vs {steer_ref} and {REFERENCE})", ""]
     for c, vs in verdicts.items():
         lines.append(f"- {c}: " + "; ".join(f"{k[3:]}: {v['label']}" for k, v in vs.items()))
     deltas = out / "band_deltas.json"
@@ -130,7 +110,7 @@ def main():
         for s in r["samples"]:
             lines.append(f"- [{s['label']}] …{s['response'].replace(chr(10), ' ')[-200:]}")
         lines.append("")
-    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in KIMI_LOC_ROUND.md", "missing": missing,
+    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in docs/plans/README.md", "missing": missing,
                                                    "conditions": launch["conditions"], "runs": runs, "verdicts": verdicts,
                                                    "response_stats": stats}, indent=2, ensure_ascii=False) + "\n")
     (out / "analysis.md").write_text("\n".join(lines) + "\n")

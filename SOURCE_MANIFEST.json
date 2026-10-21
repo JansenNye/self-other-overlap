@@ -21,7 +21,7 @@
     {
       "path": "src/soo_experiments/soo/evaluate.py",
       "source_sha256": "87b0dd20e5e84c9f8dc4768a15268ff40beaceaa0542d07877979f28c5472961",
-      "release_sha256": "c163e5779404a9f26b7f7076eb32c9fc74b5a700636f38003f63b2d874351d6a",
+      "release_sha256": "b27b0b2d35cbb93b7d41be4ca5344adbcaf432969c5a9bea29b01b9fe2085f11",
       "modified_for_release": true
     },
     {
@@ -33,13 +33,13 @@
     {
       "path": "src/soo_experiments/soo/lora_subset.py",
       "source_sha256": "881846ef1bf3c5c5d94b7ef649943463bd4ccf16597df40055142a9b43ad908c",
-      "release_sha256": "881846ef1bf3c5c5d94b7ef649943463bd4ccf16597df40055142a9b43ad908c",
-      "modified_for_release": false
+      "release_sha256": "6aabc8a05b317202dcc809fb3fd60040bd4e820c99d0223dd668b10efbb9a88c",
+      "modified_for_release": true
     },
     {
       "path": "src/soo_experiments/soo/measure_overlap.py",
       "source_sha256": "b787dee40a9171852e504cc66a8a0939da11cf8fb1ed67b033f0478794db5edf",
-      "release_sha256": "29566e3f276126463c60ed79342d304107aacb63da14830fdb45daab9da88cb3",
+      "release_sha256": "7963545dda0685138d381f5f2101efff62a3068f8eaeb699eafbd2541cb7ecb2",
       "modified_for_release": true
     },
     {
@@ -57,8 +57,8 @@
     {
       "path": "src/soo_experiments/soo/steering.py",
       "source_sha256": "98bf825ac0dee66e03899fa93819d0399919d150701db751d7d0166ebb2abfa6",
-      "release_sha256": "98bf825ac0dee66e03899fa93819d0399919d150701db751d7d0166ebb2abfa6",
-      "modified_for_release": false
+      "release_sha256": "5a9599683606564f56d0f9f2064e8b3402aa7c578d6269cc46ff84646f0b78ed",
+      "modified_for_release": true
     },
     {
       "path": "src/soo_experiments/soo/subspace.py",
@@ -369,13 +369,13 @@
     {
       "path": "experiments/soo/scripts/extract_band_deltas.py",
       "source_sha256": "5af07a5e7785606611501328e61dda7549009159d1acd18bbfe18084cfac04c6",
-      "release_sha256": "f1a2a4e1ec6df33dac369e671008e1a38650e37f109cc0fada78aac2bb1f3c59",
+      "release_sha256": "cea5fd1c075414d7aeefb19bca591a96c47e43365eabaed3e03b017493aae5f5",
       "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/make_constants.py",
       "source_sha256": "c9b5c499646fbef5eb5d1d0f70ce81d1987f72f652e2d9fcd4fe9e0984eb2df7",
-      "release_sha256": "11eee00059daafb6138fad127a624afcc8cce37983204bce07fbe20ce86494c6",
+      "release_sha256": "2bceaa3f28abc925b62c31d73823966034f1e61076db5a4f644adcbeb22b2ca1",
       "modified_for_release": true
     },
     {
@@ -405,73 +405,73 @@
     {
       "path": "experiments/soo/scripts/intent_language_check.py",
       "source_sha256": "6f39233b2c137f0d1bb334d5582738deb2246e641d0d5191c8319f8fd39d50bd",
-      "release_sha256": "d485eac47971e48925b58e863067b9d33f71edde2c86ceae9317d3e7826f6b0a",
+      "release_sha256": "723ced8519fdd25f14ec80aebf3c21dfa3a843d57cc0713dafbf2aec9ac1ce44",
       "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_adapter_round.py",
       "source_sha256": "025260cf9b63a9adfbd1fce972c2c7d361b8f4a0d9bddc858da11e23b3fdcdcc",
-      "release_sha256": "b3489bff2372c2bd66631125afc4d1504181f619cd385078059d047f01ab940d",
+      "release_sha256": "a626f74b2d23d3eb76209f13d5e12996665a9a8afa6c4e143cba786e1375d3bf",
       "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_constant_round.py",
       "source_sha256": "40c3887f7fd60d0f881682cec1324404a13ea89e335c8ffda7a059239d8a6d9e",
-      "release_sha256": "40c3887f7fd60d0f881682cec1324404a13ea89e335c8ffda7a059239d8a6d9e",
-      "modified_for_release": false
+      "release_sha256": "d6e08200413a0f44a349b64968a58427d9ec2365795d5ab5fea4d28d595d96a9",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_layer_round.py",
       "source_sha256": "c6fe07337f079ed9b69d74991fb36f84d3f6fd54c319a52c83abf54dab55963f",
-      "release_sha256": "c6fe07337f079ed9b69d74991fb36f84d3f6fd54c319a52c83abf54dab55963f",
-      "modified_for_release": false
+      "release_sha256": "3fe6d0e5c54ae40e1275f9a077a82bc2f9b97b839117875c7bca07cdbd3d7ee4",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_bisect_round.py",
       "source_sha256": "b1eb6e2c91f2ea48902840f5802478bd46dd26e931d2234bc791821c7fa68ce3",
-      "release_sha256": "b1eb6e2c91f2ea48902840f5802478bd46dd26e931d2234bc791821c7fa68ce3",
-      "modified_for_release": false
+      "release_sha256": "d3551c49bdd239cd2119dfa49c257d501ccf0c32e36f7d4d959d9c2714911ba8",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_steer_round.py",
       "source_sha256": "a53c795116ac15172b160e5dcfa2919f09c42caf9045a5052d66926a43cac506",
-      "release_sha256": "a53c795116ac15172b160e5dcfa2919f09c42caf9045a5052d66926a43cac506",
-      "modified_for_release": false
+      "release_sha256": "d2f75f450f4f4efc0496bbcb3009293448292764b744f90eda75ec0fb382ecb3",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_kimi_round.py",
       "source_sha256": "3dc13511d406d85cce44979e677bcbaa9fc6edbb87916805037015724afeced9",
-      "release_sha256": "3dc13511d406d85cce44979e677bcbaa9fc6edbb87916805037015724afeced9",
-      "modified_for_release": false
+      "release_sha256": "879f6a05240731f6a291db15bfc8b1fe51685370f3117b1654c7d25d95de8fd5",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_kimi_sweep.py",
       "source_sha256": "8af9da936f2ec78fb4116d8d66629c314392f136721d6021266506a08e5e8bc6",
-      "release_sha256": "8af9da936f2ec78fb4116d8d66629c314392f136721d6021266506a08e5e8bc6",
-      "modified_for_release": false
+      "release_sha256": "ece4d84419dc9abcdebd61460cc52792d4fe7174dcbdd1f8c7d70d155fa830bb",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_kimi_loc.py",
       "source_sha256": "e9cf006e8c6adbda2e1de1c09fbb523d2032ba4e343bc824dc40c1b2fc0fd2b1",
-      "release_sha256": "e9cf006e8c6adbda2e1de1c09fbb523d2032ba4e343bc824dc40c1b2fc0fd2b1",
-      "modified_for_release": false
+      "release_sha256": "08343155b9ca043416f588d0766676ca234fe6c992abd5cdb0a4965c6a6aabd2",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_kimi_joint.py",
       "source_sha256": "d9bf8d5ceda8efd5352c3b93eaab095b570a1dc6307718816e8f004b4d35950c",
-      "release_sha256": "d9bf8d5ceda8efd5352c3b93eaab095b570a1dc6307718816e8f004b4d35950c",
-      "modified_for_release": false
+      "release_sha256": "21f24b3d2b1df5e3c0a576b17cf6e2989c7f7b5ca3440146578061ce3afd1f3a",
+      "modified_for_release": true
     },
     {
       "path": "tests/test_soo_band_steer.py",
       "source_sha256": "f621fbb4859290374dfa7e959a07254313aad43f000d31451b8abf0210ce3f4e",
-      "release_sha256": "f5c1e0d8d1144a61192b8ada0d80adef1b401b2e7f3b5d87b8c67f38fe3ac8a0",
+      "release_sha256": "009ace6c339ae1d1eaee6edc3b875edc9ccf2e30711a88d5a5bbd23059a72d49",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_dose_kimi.py",
       "source_sha256": "adee30bfb0d84d8e710d0281b89cabd82aa45af46e6c5d22b5baeb06375760c9",
-      "release_sha256": "5f4ba92bfb79f349c40bcb18423941d8226dbd23ef262493194850fdf01f87d6",
+      "release_sha256": "62fb64e5c6b181987bee3d005f1434560fdf406157abca82240f9df9ce5715fa",
       "modified_for_release": true
     },
     {
@@ -483,7 +483,7 @@
     {
       "path": "tests/test_soo_lora_subset.py",
       "source_sha256": "0977d1fde8e1309b1c931b8186d46e9e7156bde3601a7541fd30bf732b552c76",
-      "release_sha256": "743debe32b6e9603f2ac24192fcab03060ec0adab0498877361eab6dfa07953c",
+      "release_sha256": "75f38b06df06a21fff2d9bc4019135202b20ca9b6be4a7106728e7df5ac68055",
       "modified_for_release": true
     },
     {

@@ -1,9 +1,9 @@
-"""Measure the constants for a no-training replacement round (CONSTANT_ROUND.md).
+"""Measure the constants for a no-training replacement round (docs/plans/README.md).
 
 For one model and layer, record the mean attention-output vector at the last
 prompt token over a prompt set, for the base model and for each given LoRA
 adapter. The adapter means are the constants the last-token LoRA loss converged
-to (FINDINGS2.md rounds 2-2c); the base mean is a content-matched but
+to (docs/EXPERIMENTS.md, representation measurements); the base mean is a content-matched but
 prompt-independent alternative. Also records how constant each source actually
 is on these prompts (root-mean-square distance of per-prompt outputs from their
 mean, relative to the mean norm).

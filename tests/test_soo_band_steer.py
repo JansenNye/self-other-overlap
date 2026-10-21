@@ -1,4 +1,4 @@
-"""Software checks for band steering: a LoRA band's mean deltas as fixed offsets (STEER_ROUND.md).
+"""Software checks for band steering: a LoRA band's mean deltas as fixed offsets (docs/plans/README.md).
 
 Run: python -m unittest discover -s tests -p 'test_soo_band_steer.py' -v
 Tiny random Llama with a random LoRA on CPU; no model download. These check the

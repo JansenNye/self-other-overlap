@@ -6,7 +6,7 @@ layer's attention output. To ask where the behavioral effect lives, keep the
 trained deltas in a chosen set of layers and remove the rest: each unselected
 LoRA module is swapped back for its frozen base layer, so the kept layers run
 the unmerged adapter path bit-for-bit as in the full model and the removed
-layers run the base model exactly (LAYER_ROUND.md). No merging, no bf16
+layers run the base model exactly (docs/plans/README.md). No merging, no bf16
 rounding of small deltas into the base weights.
 
 Layer specs (N = number of decoder layers):

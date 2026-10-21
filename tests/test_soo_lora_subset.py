@@ -1,4 +1,4 @@
-"""Software checks for restricting a LoRA adapter to a subset of layers/modules (LAYER_ROUND.md).
+"""Software checks for restricting a LoRA adapter to a subset of layers/modules (docs/plans/README.md).
 
 Run: python -m unittest discover -s tests -p 'test_soo_lora_subset.py' -v
 Tiny random Llama with a random LoRA on CPU; no model download. These check the

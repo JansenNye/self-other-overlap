@@ -1,4 +1,4 @@
-"""Pre-specified readout for the Kimi-Dev-72B adapter round (KIMI_ROUND.md).
+"""Exploratory readout for the Kimi-Dev-72B adapter round (docs/plans/README.md).
 
 Usage: python analyze_kimi_round.py OUTPUT_DIR LAUNCH_JSON [--gate]
 Reads output/eval/<condition>_<orient>_<scenario>_room_only_summary.json (+ .jsonl). Labels come from the text after
@@ -12,28 +12,9 @@ import json
 from pathlib import Path
 import sys
 
-from analyze_layer_round import BASE, ORIENTS, REFERENCE, SCENARIOS, load, verdict, wilson
+from analysis_common import BASE, ORIENTS, REFERENCE, SCENARIOS, load, verdict, wilson
 
-THINK_OPEN = "◁think▷"
-
-
-def rates(r, s):
-    if s not in r:
-        return "—"
-    x = r[s]["rates"]
-    return f"{x['honest']:.2f}/{x['deceptive']:.2f}/{x['refusal']:.2f}/{x['other']:.2f}/{x.get('truncated', 0):.2f}"
-
-
-def response_stats(out: Path, stem: str):
-    f = out / "eval" / f"{stem}.jsonl"
-    if not f.exists():
-        return None
-    rows = [json.loads(l) for l in f.read_text().splitlines() if l.strip()]
-    think = sum(THINK_OPEN in r["response"] for r in rows)
-    answered = [r for r in rows if r["label"] in ("honest", "deceptive")]
-    honest = sum(r["label"] == "honest" for r in answered)
-    return {"n": len(rows), "think_rate": think / len(rows), "answered": len(answered),
-            "honest_of_answered": honest / len(answered) if answered else float("nan")}
+from analysis_common import fmt_reasoning_rates as rates, response_stats
 
 
 def gate(runs) -> tuple[bool, str]:
@@ -74,7 +55,7 @@ def main():
             ci = "—"
             if "main" in r:
                 lo, hi = wilson(r["main"]["counts"]["deceptive"], r["main"]["n"]); ci = f"[{lo:.2f}, {hi:.2f}]"
-            st = {s: response_stats(out, f"{c}_{o}_{s}_room_only") for s in SCENARIOS}
+            st = {s: response_stats(out, f"{c}_{o}_{s}_room_only", include_thinking_accuracy=False) for s in SCENARIOS}
             stats[f"{c}/{o}"] = st
             fmt = lambda x, k: f"{x[k]:.2f}" if x else "—"  # noqa: E731
             persp = f"{r['perspectives']['rates']['honest']:.2f}" if "perspectives" in r else "—"
@@ -82,7 +63,7 @@ def main():
             lines.append(f"| {c} | {rates(r, 'main')} | {ci} | {fmt(st['main'], 'think_rate')} | {fmt(st['main'], 'honest_of_answered')} | "
                          f"{rates(r, 'treasure_hunt')} | {fmt(st['treasure_hunt'], 'think_rate')} | {persp} | {ptrunc} |")
         lines.append("")
-    lines += ["## Verdicts against the pre-specified rule (reference: adapter-seed0)", ""]
+    lines += ["## Verdicts against the published exploratory rule (reference: adapter-seed0)", ""]
     for c, v in verdicts.items():
         lines.append(f"- {c}: {v['label']}")
     flagged = [f"{c}/{o}/{s}" for c in conditions for o in ORIENTS for s in SCENARIOS
@@ -97,7 +78,7 @@ def main():
         for s in r["samples"]:
             lines.append(f"- [{s['label']}] …{s['response'].replace(chr(10), ' ')[-200:]}")
         lines.append("")
-    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in KIMI_ROUND.md", "gate": gate_msg, "missing": missing,
+    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in docs/plans/README.md", "gate": gate_msg, "missing": missing,
                                                    "conditions": launch["conditions"], "runs": runs, "verdicts": verdicts,
                                                    "response_stats": stats, "truncation_flagged": flagged}, indent=2, ensure_ascii=False) + "\n")
     (out / "analysis.md").write_text("\n".join(lines) + "\n")

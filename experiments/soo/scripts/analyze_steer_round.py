@@ -1,4 +1,4 @@
-"""Pre-specified readout for the band-steering round (STEER_ROUND.md).
+"""Exploratory readout for the band-steering round (docs/plans/README.md).
 
 Usage: python analyze_steer_round.py OUTPUT_DIR LAUNCH_JSON
 Reads output/eval/<condition>_<orient>_<scenario>_<suffix>_summary.json (+ .jsonl), output/band_deltas.json
@@ -10,7 +10,7 @@ import json
 from pathlib import Path
 import sys
 
-from analyze_layer_round import BASE, ORIENTS, SCENARIOS, fmt_rates, load, verdict, wilson
+from analysis_common import BASE, ORIENTS, SCENARIOS, fmt_rates, load, verdict, wilson
 
 DEFAULT_REFERENCE = "band-v"
 KINDS = ("self_other", "nonsocial")
@@ -68,7 +68,7 @@ def main():
             persp = f"{r['perspectives']['rates']['honest']:.2f}" if "perspectives" in r else "—"
             lines.append(f"| {cond} | {fmt_rates(r, 'main')} | {ci} | {fmt_rates(r, 'treasure_hunt')} | {persp} | {launch['conditions'][cond] or 'base'} |")
         lines.append("")
-    lines += [f"## Verdicts against the pre-specified rule (reference: {REFERENCE})", ""]
+    lines += [f"## Verdicts against the published exploratory rule (reference: {REFERENCE})", ""]
     for name in (REFERENCE, "adapter-seed0"):
         ref = runs.get(name, {})
         if ref:
@@ -93,7 +93,7 @@ def main():
         for s in r["samples"]:
             lines.append(f"- [{s['label']}] {s['response'].replace(chr(10), ' ')[:160]}")
         lines.append("")
-    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in STEER_ROUND.md", "reference": REFERENCE, "missing": missing,
+    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in docs/plans/README.md", "reference": REFERENCE, "missing": missing,
                                                    "conditions": launch["conditions"], "runs": runs, "verdicts": verdicts,
                                                    "band_deltas": deltas["stats"] if deltas else None}, indent=2) + "\n")
     (out / "analysis.md").write_text("\n".join(lines) + "\n")

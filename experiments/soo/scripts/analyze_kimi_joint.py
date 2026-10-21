@@ -1,4 +1,4 @@
-"""Pre-specified readout for the Kimi-Dev-72B L56 joint-offset round (KIMI_JOINT_ROUND.md).
+"""Exploratory readout for the Kimi-Dev-72B L56 joint-offset round (docs/plans/README.md).
 
 Usage: python analyze_kimi_joint.py OUTPUT_DIR LAUNCH_JSON
 Reads output/eval/<condition>_<orient>_<scenario>_room_only_summary.json (+ .jsonl). Every offset cell is read with the
@@ -13,8 +13,9 @@ import json
 from pathlib import Path
 import sys
 
-from analyze_kimi_loc import SCENARIOS, kind_of_change, loc_verdict, rates, response_stats
-from analyze_layer_round import BASE, ORIENTS, REFERENCE, TOL, load, wilson
+from analyze_kimi_loc import SCENARIOS, kind_of_change, loc_verdict
+from analysis_common import fmt_reasoning_rates as rates, response_stats
+from analysis_common import BASE, ORIENTS, REFERENCE, TOL, load, wilson
 
 
 def more_deceptive(runs, cond):
@@ -106,7 +107,7 @@ def main():
         for s in r["samples"]:
             lines.append(f"- [{s['label']}] …{s['response'].replace(chr(10), ' ')[-200:]}")
         lines.append("")
-    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in KIMI_JOINT_ROUND.md", "missing": missing,
+    (out / "analysis.json").write_text(json.dumps({"note": "exploratory; rule in docs/plans/README.md", "missing": missing,
                                                    "conditions": launch["conditions"], "cells": cells, "runs": runs,
                                                    "verdicts": verdicts, "pairs": pairs, "response_stats": stats},
                                                   indent=2, ensure_ascii=False) + "\n")
