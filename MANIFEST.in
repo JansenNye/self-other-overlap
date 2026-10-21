@@ -6,3 +6,5 @@ recursive-include scripts *.py
 recursive-include tests *.py
 recursive-include published *.json
 recursive-include slurm *.sbatch
+
+recursive-include published *.gz

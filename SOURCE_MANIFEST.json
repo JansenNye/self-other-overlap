@@ -1,91 +1,91 @@
 {
   "files": [
     {
-      "path": "src/selfconcept/soo/__init__.py",
+      "path": "src/soo_experiments/soo/__init__.py",
       "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "release_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/activations.py",
+      "path": "src/soo_experiments/soo/activations.py",
       "source_sha256": "1ba32d07af6079d8ab463cd4c60ec97a11c12fab70b458cfbe6da8e64f3bd228",
       "release_sha256": "1ba32d07af6079d8ab463cd4c60ec97a11c12fab70b458cfbe6da8e64f3bd228",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/datagen.py",
+      "path": "src/soo_experiments/soo/datagen.py",
       "source_sha256": "91e661dd548f42c732e4aba2c2ec3e4a6ff52186dd237edff08976a82acc1a8e",
-      "release_sha256": "91e661dd548f42c732e4aba2c2ec3e4a6ff52186dd237edff08976a82acc1a8e",
-      "modified_for_release": false
+      "release_sha256": "90ff19a5f32598161d8b1cb3cdfc89a11b890a444359d0e58cabb432f6c66df2",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/evaluate.py",
+      "path": "src/soo_experiments/soo/evaluate.py",
       "source_sha256": "87b0dd20e5e84c9f8dc4768a15268ff40beaceaa0542d07877979f28c5472961",
-      "release_sha256": "87b0dd20e5e84c9f8dc4768a15268ff40beaceaa0542d07877979f28c5472961",
-      "modified_for_release": false
+      "release_sha256": "c163e5779404a9f26b7f7076eb32c9fc74b5a700636f38003f63b2d874351d6a",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/latent_soo.py",
+      "path": "src/soo_experiments/soo/latent_soo.py",
       "source_sha256": "2278c56b20d4a45c52a8daaa30cbb55f503754a54fcccb3b1c640b85b1984f6c",
-      "release_sha256": "2278c56b20d4a45c52a8daaa30cbb55f503754a54fcccb3b1c640b85b1984f6c",
-      "modified_for_release": false
+      "release_sha256": "2abcf307bfa9b1418abb0e62d6edab003d34ddd90d345ddd3bdd71901c2da712",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/lora_subset.py",
+      "path": "src/soo_experiments/soo/lora_subset.py",
       "source_sha256": "881846ef1bf3c5c5d94b7ef649943463bd4ccf16597df40055142a9b43ad908c",
       "release_sha256": "881846ef1bf3c5c5d94b7ef649943463bd4ccf16597df40055142a9b43ad908c",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/measure_overlap.py",
+      "path": "src/soo_experiments/soo/measure_overlap.py",
       "source_sha256": "b787dee40a9171852e504cc66a8a0939da11cf8fb1ed67b033f0478794db5edf",
-      "release_sha256": "b787dee40a9171852e504cc66a8a0939da11cf8fb1ed67b033f0478794db5edf",
-      "modified_for_release": false
+      "release_sha256": "29566e3f276126463c60ed79342d304107aacb63da14830fdb45daab9da88cb3",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/overlap.py",
+      "path": "src/soo_experiments/soo/overlap.py",
       "source_sha256": "97ad589cb3c2a1d83483f272e3cc06d34dabe398f2f1960fc26c2bbc9cc4df18",
       "release_sha256": "97ad589cb3c2a1d83483f272e3cc06d34dabe398f2f1960fc26c2bbc9cc4df18",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/scenarios.py",
+      "path": "src/soo_experiments/soo/scenarios.py",
       "source_sha256": "7215153e769ddafe6c5ca6bcb316c15dc06eaafd902675bad00d96d78adcd5ed",
       "release_sha256": "7215153e769ddafe6c5ca6bcb316c15dc06eaafd902675bad00d96d78adcd5ed",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/steering.py",
+      "path": "src/soo_experiments/soo/steering.py",
       "source_sha256": "98bf825ac0dee66e03899fa93819d0399919d150701db751d7d0166ebb2abfa6",
       "release_sha256": "98bf825ac0dee66e03899fa93819d0399919d150701db751d7d0166ebb2abfa6",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/subspace.py",
+      "path": "src/soo_experiments/soo/subspace.py",
       "source_sha256": "42cb50b5b6c273237d288409a3c9a2d638eed75d63a87e0c0af6d2bccb343470",
       "release_sha256": "42cb50b5b6c273237d288409a3c9a2d638eed75d63a87e0c0af6d2bccb343470",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/train.py",
+      "path": "src/soo_experiments/soo/train.py",
       "source_sha256": "feac617b8e45af84c93ea544b000e174173782a2a13a7283e76c82950b019569",
-      "release_sha256": "4c4e5ee7655dad005e1ed9ec64b17b4419052595cc74b56573804470c4aaef9c",
+      "release_sha256": "8a4fa895e46817355f77f0fab0c7c160a01740fba9327a26851d668df165762c",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/vocab.py",
+      "path": "src/soo_experiments/soo/vocab.py",
       "source_sha256": "23aeee83117a6dd6c77303330ac6f1feeb969cba5888dbc048d1a468b53b561a",
       "release_sha256": "23aeee83117a6dd6c77303330ac6f1feeb969cba5888dbc048d1a468b53b561a",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/common/chat.py",
+      "path": "src/soo_experiments/common/chat.py",
       "source_sha256": "947be50fa62de8093951b87d20940dd96adf111e5dcd022a62702591f2adc57d",
-      "release_sha256": "947be50fa62de8093951b87d20940dd96adf111e5dcd022a62702591f2adc57d",
-      "modified_for_release": false
+      "release_sha256": "379399fb8709dca9885310e01bf7d97c9e21f13d0864e89fe661e04200f5d90c",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/common/loading.py",
+      "path": "src/soo_experiments/common/loading.py",
       "source_sha256": "8279a835874b2b1d594cad4e7b7bc10cd9f8d8b5127d3675edce3d88e7ffe21b",
       "release_sha256": "c36bdaeda53d814dbe534837e7f57f2aec6248734c7597d7db46d2344e40ed23",
       "modified_for_release": true
@@ -363,20 +363,20 @@
     {
       "path": "experiments/soo/scripts/extract_steering.py",
       "source_sha256": "18817205cc463c0006598fcb0b7bf1e94ae7c3b1eb7ed7e7c5d28b51201c6bfb",
-      "release_sha256": "18817205cc463c0006598fcb0b7bf1e94ae7c3b1eb7ed7e7c5d28b51201c6bfb",
-      "modified_for_release": false
+      "release_sha256": "7140f45739b1947f2893185370433c63f62c049fd25709f0660ede827c3573bf",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/extract_band_deltas.py",
       "source_sha256": "5af07a5e7785606611501328e61dda7549009159d1acd18bbfe18084cfac04c6",
-      "release_sha256": "5af07a5e7785606611501328e61dda7549009159d1acd18bbfe18084cfac04c6",
-      "modified_for_release": false
+      "release_sha256": "f1a2a4e1ec6df33dac369e671008e1a38650e37f109cc0fada78aac2bb1f3c59",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/make_constants.py",
       "source_sha256": "c9b5c499646fbef5eb5d1d0f70ce81d1987f72f652e2d9fcd4fe9e0984eb2df7",
-      "release_sha256": "c9b5c499646fbef5eb5d1d0f70ce81d1987f72f652e2d9fcd4fe9e0984eb2df7",
-      "modified_for_release": false
+      "release_sha256": "11eee00059daafb6138fad127a624afcc8cce37983204bce07fbe20ce86494c6",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/prepare_subspace_pilot.py",
@@ -387,32 +387,32 @@
     {
       "path": "experiments/soo/scripts/layer_gap.py",
       "source_sha256": "10c5e8c9f848b177766da4be9a4be604684bd00b7627881c2de4bae245b28105",
-      "release_sha256": "10c5e8c9f848b177766da4be9a4be604684bd00b7627881c2de4bae245b28105",
-      "modified_for_release": false
+      "release_sha256": "b88393977712a4c7a910b93174f6768b9e67184391cf0f843483170352699a19",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/rescore.py",
       "source_sha256": "3bcfc41a04c1b29e2a6785d73d37c4d61372c473155b7c4a2ce83c378f3ca5c8",
-      "release_sha256": "3bcfc41a04c1b29e2a6785d73d37c4d61372c473155b7c4a2ce83c378f3ca5c8",
-      "modified_for_release": false
+      "release_sha256": "0da26533c3b35a0e3bbc42e39099f5bae9f8fe8e3b91f3cf9986d4a1f7c0a485",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/paired_tests.py",
       "source_sha256": "b65f68e1c3dba8f04fb582c6ef707752cf8940a4005be8fddb2ea8dea4dbae59",
-      "release_sha256": "b65f68e1c3dba8f04fb582c6ef707752cf8940a4005be8fddb2ea8dea4dbae59",
-      "modified_for_release": false
+      "release_sha256": "00eae75b25462857ebc223a0fc05ee54b6c1be2bc6f52b14214f915448839a32",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/intent_language_check.py",
       "source_sha256": "6f39233b2c137f0d1bb334d5582738deb2246e641d0d5191c8319f8fd39d50bd",
-      "release_sha256": "6f39233b2c137f0d1bb334d5582738deb2246e641d0d5191c8319f8fd39d50bd",
-      "modified_for_release": false
+      "release_sha256": "d485eac47971e48925b58e863067b9d33f71edde2c86ceae9317d3e7826f6b0a",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_adapter_round.py",
       "source_sha256": "025260cf9b63a9adfbd1fce972c2c7d361b8f4a0d9bddc858da11e23b3fdcdcc",
-      "release_sha256": "025260cf9b63a9adfbd1fce972c2c7d361b8f4a0d9bddc858da11e23b3fdcdcc",
-      "modified_for_release": false
+      "release_sha256": "b3489bff2372c2bd66631125afc4d1504181f619cd385078059d047f01ab940d",
+      "modified_for_release": true
     },
     {
       "path": "experiments/soo/scripts/analyze_constant_round.py",
@@ -465,44 +465,44 @@
     {
       "path": "tests/test_soo_band_steer.py",
       "source_sha256": "f621fbb4859290374dfa7e959a07254313aad43f000d31451b8abf0210ce3f4e",
-      "release_sha256": "94021372e8c8e4e0eb5aa5fc0e048c13079abcfb3c92c5615dbfb0b946581f4a",
+      "release_sha256": "f5c1e0d8d1144a61192b8ada0d80adef1b401b2e7f3b5d87b8c67f38fe3ac8a0",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_dose_kimi.py",
       "source_sha256": "adee30bfb0d84d8e710d0281b89cabd82aa45af46e6c5d22b5baeb06375760c9",
-      "release_sha256": "b1af6b1baeda9f00d423c6f4662005365afb1a9308eba09f75274ec1631bf1c8",
+      "release_sha256": "5f4ba92bfb79f349c40bcb18423941d8226dbd23ef262493194850fdf01f87d6",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_hybrid_subset.py",
       "source_sha256": "79aa443f894be683614d19f575a14541865ea8958756e03ebf90ac6c2f6aae93",
-      "release_sha256": "04d4bedc6f3f15df6f0d6be3aeeb382a832f6c6f143e967c048e4068d850fef3",
+      "release_sha256": "ba16d3b9a2fccf85f35d1385094d2c703711c3ac82bc4f16a713e02ade62c5ee",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_lora_subset.py",
       "source_sha256": "0977d1fde8e1309b1c931b8186d46e9e7156bde3601a7541fd30bf732b552c76",
-      "release_sha256": "b63212996f3a20095e594003033748a352b3d4dacb963fcfca9a8fb56b4ba345",
+      "release_sha256": "743debe32b6e9603f2ac24192fcab03060ec0adab0498877361eab6dfa07953c",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_overlap.py",
       "source_sha256": "72c32c987949b18665544c12172444511ad84ec83697137bf0d68e4208db1f09",
-      "release_sha256": "8bc3a6865650a0d37cd21652a8a512d5fd3725357802f9d734882ac4aa4099f4",
+      "release_sha256": "c2b9df0207c86d45ac65de482195f7c3e4a517460de42fb568f6699da8228908",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_replace.py",
       "source_sha256": "bf18c52de36f1714c099602b869c4a400e7e883fce4797e13ff1436d825168e2",
-      "release_sha256": "517c2a4e3067519fb74b96ae30ec72c903c1a21d253e8a1ea4cc7834eb0526ae",
+      "release_sha256": "3e9517f429955c8f2b6a67432e6c0e49864822515d0e04b957de314b2989a1ae",
       "modified_for_release": true
     },
     {
       "path": "tests/test_soo_subspace.py",
       "source_sha256": "d4836a75109a764ea54d9ed5a77f855db6d37c09b0cb99a1c1c7c0b55ff8e4bf",
-      "release_sha256": "d4836a75109a764ea54d9ed5a77f855db6d37c09b0cb99a1c1c7c0b55ff8e4bf",
-      "modified_for_release": false
+      "release_sha256": "e18803c0fc3f64cef9448543bd2c7dc4cc64658bd7b2f1e086725d066be14494",
+      "modified_for_release": true
     }
   ],
   "packaging_notes": "See docs/RELEASE.md; source hashes precede packaging edits.",

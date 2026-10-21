@@ -12,8 +12,8 @@ Usage: python scripts/rescore.py [--dry-run]
 import argparse
 import json
 
-from selfconcept.common.paths import experiment_dir
-from selfconcept.soo.evaluate import classify
+from soo_experiments.common.paths import experiment_dir
+from soo_experiments.soo.evaluate import classify
 
 ROOT = experiment_dir("soo")
 

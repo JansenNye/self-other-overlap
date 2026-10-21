@@ -8,7 +8,7 @@
 #SBATCH --mem=48G
 #SBATCH --output=slurm-logs/%x-%j.out
 # Submit from the repository root after mkdir -p slurm-logs.
-# Example: sbatch slurm/run.sbatch python -m selfconcept.soo.evaluate --help
+# Example: sbatch slurm/run.sbatch python -m soo_experiments.soo.evaluate --help
 # Set your cluster's partition/account and GPU/memory requirements when submitting.
 set -euo pipefail
 cd "${SLURM_SUBMIT_DIR:?Submit from the repository root}"

@@ -1,6 +1,6 @@
 """Measure paired endpoint gaps under existing SOO interventions.
 
-Run `python -m selfconcept.soo.measure_overlap --help` for arguments.
+Run `python -m soo_experiments.soo.measure_overlap --help` for arguments.
 Input JSONL rows require id, family, split, kind, self_prompt, other_prompt.
 See experiments/soo/OVERLAP.md for the input contract and interpretation.
 """
@@ -16,7 +16,7 @@ import sys
 
 import torch
 
-from selfconcept.common.chat import chat_template_kwargs
+from soo_experiments.common.chat import chat_template_kwargs
 from .activations import get_decoder_layers
 from .overlap import last_valid_indices, measure_condition, summarize
 from .steering import (
@@ -115,7 +115,7 @@ def parser():
     p.add_argument("--positions", choices=MARKER_POSITION_MODES, default="all")
     p.add_argument("--random-seeds", type=int, nargs="*", default=[])
     p.add_argument("--adapter", type=Path, help="local PEFT adapter; compared separately to base")
-    p.add_argument("--adapter-layers", help="restrict the adapter's LoRA modules to these layers (selfconcept.soo.lora_subset spec)")
+    p.add_argument("--adapter-layers", help="restrict the adapter's LoRA modules to these layers (soo_experiments.soo.lora_subset spec)")
     p.add_argument("--adapter-modules", help="restrict the adapter to these target modules, e.g. v_proj")
     p.add_argument("--band-deltas", type=Path, help="band deltas .pt (scripts/extract_band_deltas.py): fixed offsets on the base model (STEER_ROUND.md)")
     p.add_argument("--band-modules", nargs="+", default=["v_proj"], help="which projections' band offsets to measure, each as its own condition")
@@ -176,7 +176,7 @@ def main(argv=None):
         hashes.update(artifact_hashes(args.model))
 
     from transformers import AutoTokenizer
-    from selfconcept.common.loading import load_causal_lm
+    from soo_experiments.common.loading import load_causal_lm
 
     torch.manual_seed(args.seed)
     tokenizer = AutoTokenizer.from_pretrained(args.model, revision=args.revision)
@@ -329,7 +329,7 @@ def main(argv=None):
 
     source_files = [Path(__file__), Path(__file__).with_name("overlap.py"),
                     Path(__file__).with_name("steering.py"), Path(__file__).with_name("activations.py"),
-                    root / "src/selfconcept/common/loading.py", root / "src/selfconcept/common/chat.py"]
+                    root / "src/soo_experiments/common/loading.py", root / "src/soo_experiments/common/chat.py"]
     if args.subspace_ranks:
         source_files.append(Path(__file__).with_name("subspace.py"))
     modules = dict(model.named_modules())

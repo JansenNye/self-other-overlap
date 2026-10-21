@@ -1,15 +1,16 @@
 # Release provenance and validation
 
-Prepared October 21, 2026 from the SOO research implementation. Original
-file hashes are retained in `SOURCE_MANIFEST.json`. This implementation
-contains the Kimi dose/position and Qwen fused-projection support used by the second
-post. The newer main research branch did not contain all of those changes.
+Prepared October 21, 2026 from the research implementation used for the posts.
+Original and released file hashes are recorded in `SOURCE_MANIFEST.json`.
+Internal repository identifiers and source locations are omitted from the public
+manifest; a complete mapping is retained privately by the release maintainer.
 
 Packaging changes:
 
 - Selected the SOO modules, configs, synthetic data, measurement/analysis scripts,
   and existing CPU tests required by the two posts.
-- Kept `selfconcept` module names; use a separate environment from the companion repo.
+- Renamed the import package to `soo_experiments` to allow installation alongside
+  the companion `axis_rh` package. All scripts and commands use the new namespace.
 - Removed import-time cluster detection, forced offline mode and `byutils` side effects.
 - Made scratch storage configurable with `SELFCONCEPT_SCRATCH` and supplied a generic
   Slurm wrapper instead of hardcoding a partition, account, cache, or GPU assignment.
@@ -28,3 +29,12 @@ were not repeated during packaging; archived result exports are not fresh replic
 The source research worktree is kept separate and unchanged by this release.
 
 Both wheel and source distributions build successfully with `uv build`.
+
+Version 0.2.0 removes internal source identifiers from current release files,
+credits contributors in the MIT copyright notice, and uses a distinct import namespace.
+The existing test suite passes after the rename. Earlier Git commits are not rewritten.
+
+The response verifier reproduces all counts and rates from 459,250 original responses
+across 1,837 second-study evaluation files. The first study's complete response archive
+remains unavailable. Both distributions were also installed together in a fresh
+environment, and their package files do not overlap.

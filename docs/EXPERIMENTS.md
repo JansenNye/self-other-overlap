@@ -1,18 +1,42 @@
 # Experiment map and commands
 
 Layer indices are zero-based. Run the commands below from `experiments/soo`, with
-the repository installed into the active Python environment. The scripts keep the
-original `selfconcept` import paths so existing adapters and results remain compatible.
-Install the two research repositories in separate environments because both use that
-namespace.
+the repository installed into the active Python environment. The import package is `soo_experiments`; the companion repository uses `axis_rh`.
+Adapter weights and result file formats are unchanged.
+
+## Loss implementation and padding
+
+The original paper does not specify how to align self/other prompts of different
+token lengths. This implementation applies the chat template, including its generation
+prefix, and right-pads both prompts to the maximum tokenized length across all 78
+training pairs. The captured activations are the selected attention layer's
+`self_attn.o_proj` outputs.
+
+With `soo_mode: full`, the loss is elementwise mean squared error over all batch,
+sequence, and hidden dimensions. The attention mask is passed to the model, but **the
+loss itself is not masked**: padded query positions contribute to the objective.
+This is an implementation choice, not an established detail of the original paper.
+
+With `soo_mode: last_token`, each prompt is indexed separately at
+`attention_mask.sum(1) - 1`, and the MSE uses only those final non-padding activation
+vectors. With a generation prefix, this endpoint can be a chat-template token rather
+than the final word of the user's message. The robust Mistral comparison uses
+last-token loss at layer 16. All five selected mechanism-study adapters also use
+last-token loss.
+
+The full-sequence and last-token ablations change both the padding contribution and
+the set of genuine token positions supervised. They therefore do not isolate whether
+padding caused damaged outputs. That would require a separate masked full-sequence
+control with a stated alignment rule for unequal-length prompts; no such result is
+claimed here.
 
 ## First post: replication and evaluation confounds
 
 | Component | Code / input |
 |---|---|
-| Matched self/other pairs and room scenarios | `src/selfconcept/soo/{datagen,scenarios,vocab}.py` |
-| LoRA training; full-sequence vs final-token MSE | `src/selfconcept/soo/train.py` |
-| Original, mirrored, transfer and Perspectives evaluations | `src/selfconcept/soo/evaluate.py`, `data/eval*` |
+| Matched self/other pairs and room scenarios | `src/soo_experiments/soo/{datagen,scenarios,vocab}.py` |
+| LoRA training; full-sequence vs final-token MSE | `src/soo_experiments/soo/train.py` |
+| Original, mirrored, transfer and Perspectives evaluations | `src/soo_experiments/soo/evaluate.py`, `data/eval*` |
 | Training recipes and ablations | `configs/*.yaml`; CLI `--layer`, `--epochs`, `--seeds` |
 | Base activation-gap profile | `scripts/layer_gap.py MODEL OUTPUT.json` |
 | Paired item comparisons | `scripts/paired_tests.py A.jsonl B.jsonl --field label --positive deceptive` |
@@ -29,7 +53,7 @@ Example layer sweep (training only; evaluate both orderings afterward):
 
 ```bash
 for layer in 14 16 18 19 20; do
-  python -m selfconcept.soo.train --config configs/mistral-7b-lasttok.yaml \
+  python -m soo_experiments.soo.train --config configs/mistral-7b-lasttok.yaml \
     --layer "$layer" --seeds 0 1 2 3 4
 done
 ```
@@ -37,8 +61,7 @@ done
 The first post's capability checks use the external `lm_eval` harness (optional
 `capabilities` dependencies), with ARC, HellaSwag and MMLU. The second post did not
 run capability benchmarks. Its Perspectives control is a task-specific theory-of-mind
-check, not a general capability guarantee. The archived LLM-judge calls and raw model
-outputs are not bundled in this release.
+check, not a general capability guarantee. The archived LLM-judge calls and the first study's full response archive are not bundled. The second study's raw responses are included; see `RESULTS.md`.
 
 ## Second post: selected adapters
 
@@ -60,7 +83,7 @@ For Gemma and Qwen, the experiment used thinking disabled. Set this explicitly:
 
 ```bash
 export SOO_CHAT_KWARGS='{"enable_thinking": false}'
-python -m selfconcept.soo.train --config configs/gemma4-12b.yaml --layer 24 --seeds 0
+python -m soo_experiments.soo.train --config configs/gemma4-12b.yaml --layer 24 --seeds 0
 ```
 
 For Kimi use its own config without imposing another model's chat-template settings;
@@ -74,7 +97,7 @@ shards the 72B model across available GPUs. The other mechanism-study models use
 After training Gemma-4-12B at layer 24:
 
 ```bash
-python -m selfconcept.soo.evaluate --model google/gemma-4-12B-it \
+python -m soo_experiments.soo.evaluate --model google/gemma-4-12B-it \
   --adapter results/checkpoints/gemma4-12b-L24/seed0 \
   --adapter-layers range:19-23 --adapter-modules v_proj \
   --scenarios main treasure_hunt perspectives --data data/eval \
@@ -93,7 +116,7 @@ python scripts/make_constants.py --model google/gemma-4-12B-it --layer 24 \
   --pairs data/train_soo_pairs.jsonl \
   --adapter adapter_seed0=results/checkpoints/gemma4-12b-L24/seed0 \
   --out results/constants/gemma4-12b.pt
-python -m selfconcept.soo.evaluate --model google/gemma-4-12B-it \
+python -m soo_experiments.soo.evaluate --model google/gemma-4-12B-it \
   --steer-layer 24 --steer-mode replace \
   --steer-constants results/constants/gemma4-12b.pt --steer-constant adapter_seed0 \
   --scenarios main perspectives --suffix room_only --n 250 --tag constant-original
@@ -111,7 +134,7 @@ python scripts/extract_band_deltas.py --model google/gemma-4-12B-it \
   --adapter results/checkpoints/gemma4-12b-L24/seed0 \
   --layers range:19-23 --modules v_proj --pairs data/train_soo_pairs.jsonl \
   --out results/band-deltas/gemma4-12b.pt
-python -m selfconcept.soo.evaluate --model google/gemma-4-12B-it \
+python -m soo_experiments.soo.evaluate --model google/gemma-4-12B-it \
   --band-deltas results/band-deltas/gemma4-12b.pt --band-module v_proj \
   --band-token-mode all --band-alpha 1 --steer-positions prompt \
   --scenarios main treasure_hunt perspectives --suffix room_only --n 250 \
@@ -132,7 +155,7 @@ verifies/regenerates the committed probe file (refusing to overwrite a different
 Then, from `experiments/soo`:
 
 ```bash
-python -m selfconcept.soo.measure_overlap --model google/gemma-4-12B-it \
+python -m soo_experiments.soo.measure_overlap --model google/gemma-4-12B-it \
   --probes data/subspace_pilot_pairs.jsonl --split development --layer 24 \
   --adapter results/checkpoints/gemma4-12b-L24/seed0 \
   --device cuda --dtype bfloat16 --out results/overlap/gemma4-12b
@@ -143,4 +166,5 @@ Gap, spread and output norm are distinct measurements. `--endpoint-offset` chang
 the token measured. `--subspace-ranks` enables fitted subspace removal controls.
 The `analyze_*_round.py` scripts retain the original frozen-run analysis interfaces;
 they expect the corresponding run manifest and raw outputs, not only the public
-aggregate summary. Those raw outputs are not bundled.
+aggregate summary. Evaluation responses can be extracted from the committed archive (see `RESULTS.md`);
+full frozen-run manifests and activation measurements are separate inputs.

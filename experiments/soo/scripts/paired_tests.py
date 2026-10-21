@@ -24,7 +24,7 @@ from pathlib import Path
 
 from scipy.stats import binomtest
 
-from selfconcept.common.paths import experiment_dir
+from soo_experiments.common.paths import experiment_dir
 
 ROOT = experiment_dir("soo")
 

@@ -1,8 +1,9 @@
 # Attribution
 
-Research and implementation by Jansen Nye, conducted at BYU DRAGN Labs with
-Nancy Fulda. Extracted from the original research implementation. Original
-file hashes are retained in `SOURCE_MANIFEST.json`.
+SOO research and experiment implementation by Jansen Nye, conducted at BYU DRAGN
+Labs with Nancy Fulda. This release also includes shared research utilities.
+The copyright notice credits Jansen Nye and contributors; it does not assert
+sole authorship of the shared code. Original file hashes are in `SOURCE_MANIFEST.json`.
 
 The training objective and burglar-task scenarios reproduce the methodology of
 Carauleanu et al., *Towards Safe and Honest AI Agents with Neural Self-Other

@@ -11,7 +11,7 @@ in two token conventions mirroring the two soo_modes trained previously:
   - 'mean': difference of each prompt's mean over its own valid tokens
 
 Output is a single .pt holding vectors for all layers (float32), consumed by
-selfconcept.soo.steering / evaluate.py --steer-*.
+soo_experiments.soo.steering / evaluate.py --steer-*.
 
 Usage: python scripts/extract_steering.py <model_id> <out_pt> [--batch-size 4] [--max-pairs N]
 """
@@ -23,10 +23,10 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer
 
-from selfconcept.common.paths import experiment_dir
-from selfconcept.soo.activations import attn_out_proj, get_decoder_layers
-from selfconcept.common.loading import load_causal_lm
-from selfconcept.soo.train import chat_text, encode_batch  # chat_text honours $SOO_CHAT_KWARGS
+from soo_experiments.common.paths import experiment_dir
+from soo_experiments.soo.activations import attn_out_proj, get_decoder_layers
+from soo_experiments.common.loading import load_causal_lm
+from soo_experiments.soo.train import chat_text, encode_batch  # chat_text honours $SOO_CHAT_KWARGS
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("model_id")

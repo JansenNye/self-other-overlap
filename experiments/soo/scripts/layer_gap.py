@@ -19,10 +19,10 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer
 
-from selfconcept.common.paths import experiment_dir
-from selfconcept.soo.activations import get_decoder_layers
-from selfconcept.common.loading import load_causal_lm
-from selfconcept.soo.train import chat_text, encode_batch
+from soo_experiments.common.paths import experiment_dir
+from soo_experiments.soo.activations import get_decoder_layers
+from soo_experiments.common.loading import load_causal_lm
+from soo_experiments.soo.train import chat_text, encode_batch
 
 model_id, out_json = sys.argv[1], sys.argv[2]
 device = "cuda" if torch.cuda.is_available() else "cpu"

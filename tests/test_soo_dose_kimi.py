@@ -15,9 +15,9 @@ from unittest import mock
 
 import torch
 
-from selfconcept.soo.activations import get_decoder_layers
-from selfconcept.soo.evaluate import answer_text, content_span
-from selfconcept.soo.steering import (
+from soo_experiments.soo.activations import get_decoder_layers
+from soo_experiments.soo.evaluate import answer_text, content_span
+from soo_experiments.soo.steering import (
     PositionalSteering, apply_module_steering, attn_proj, band_supports, get_band_offsets, random_matched_offsets,
     response_marker,
 )
@@ -181,7 +181,7 @@ class ReasoningAndBatchTests(unittest.TestCase):
         self.assertEqual(answer_text("<t>a</t> b</t> c", "<t>", "</t>"), " c")
 
     def test_cli_content_mode_batching_and_think_markers(self):
-        from selfconcept.soo import evaluate
+        from soo_experiments.soo import evaluate
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -357,7 +357,7 @@ class JointOffsetTests(unittest.TestCase):
             torch.testing.assert_close(steered[m] - base[m], (0.5 * self.offsets[f"1:{m}"]).expand_as(base[m]), atol=1e-5, rtol=1e-4)
 
     def test_evaluate_accepts_joint_module_and_band_layers(self):
-        from selfconcept.soo import evaluate
+        from soo_experiments.soo import evaluate
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

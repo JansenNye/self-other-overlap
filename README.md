@@ -28,7 +28,7 @@ python -m pip install -e .
 The tested package versions are in `requirements-tested.txt`. CUDA dependencies and
 cluster environment settings are not forced by this package. Set `HF_HOME` or
 `HF_HUB_OFFLINE=1` yourself if needed. Model downloads may require accepting the model
-publisher's access terms. Checkpoints and generated outputs are not bundled.
+publisher's access terms. The second study's saved evaluation responses are bundled; trained checkpoints remain separate.
 
 ## Start with the data and software tests
 
@@ -39,10 +39,15 @@ tests: they construct tiny random models locally.
 ```bash
 python -m unittest discover -s tests -p 'test_soo_*.py' -v
 python scripts/plot_published_results.py
+python scripts/verify_published_responses.py
 ```
 
 The figure is regenerated from archived aggregate counts, not by running a language model.
 See `docs/RESULTS.md` for their origin and scope.
+
+The two token-loss definitions and the padding limitation are documented in
+[the methods notes](docs/EXPERIMENTS.md#loss-implementation-and-padding).
+The import package is `soo_experiments`, distinct from the companion `axis_rh` package.
 
 ## Replicate a training/evaluation cell
 
@@ -50,16 +55,16 @@ Run these commands from `experiments/soo` after installing the package:
 
 ```bash
 cd experiments/soo
-python -m selfconcept.soo.train \
+python -m soo_experiments.soo.train \
   --config configs/mistral-7b-lasttok.yaml --layer 16 --seeds 0
 
-python -m selfconcept.soo.evaluate \
+python -m soo_experiments.soo.evaluate \
   --model mistralai/Mistral-7B-Instruct-v0.2 \
   --adapter results/checkpoints/mistral-7b-lasttok-L16/seed0 \
   --data data/eval --scenarios main treasure_hunt perspectives \
   --suffix i_would --n 250 --tag adapter-original
 
-python -m selfconcept.soo.evaluate \
+python -m soo_experiments.soo.evaluate \
   --model mistralai/Mistral-7B-Instruct-v0.2 \
   --adapter results/checkpoints/mistral-7b-lasttok-L16/seed0 \
   --data data/eval_mirrored --scenarios main treasure_hunt perspectives \
@@ -74,6 +79,8 @@ The example runs one seed. The replication study used multiple seeds; pass
 `--seeds 0 1 2 3 4` for the five-seed Mistral comparison. A config's default layer is
 sometimes the original paper's or an early pilot's setting, **not the successful cell**.
 Use the explicit layers in `docs/EXPERIMENTS.md`.
+
+Trained-adapter availability is tracked in [ARTIFACTS.md](docs/ARTIFACTS.md).
 
 ## Mechanism study
 

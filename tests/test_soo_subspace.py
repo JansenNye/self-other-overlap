@@ -7,10 +7,10 @@ import unittest
 
 import torch
 
-from selfconcept.soo.measure_overlap import main
-from selfconcept.soo.overlap import measure_condition
-from selfconcept.soo.steering import apply_steering
-from selfconcept.soo.subspace import apply_subspace, fit_subspace, random_subspace
+from soo_experiments.soo.measure_overlap import main
+from soo_experiments.soo.overlap import measure_condition
+from soo_experiments.soo.steering import apply_steering
+from soo_experiments.soo.subspace import apply_subspace, fit_subspace, random_subspace
 from test_soo_overlap import tiny_model, example_batch, pair_rows
 
 

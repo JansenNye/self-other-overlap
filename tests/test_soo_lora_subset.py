@@ -9,7 +9,7 @@ import unittest
 
 import torch
 
-from selfconcept.soo.lora_subset import apply_adapter_subset, parse_layer_spec, parse_module_spec, restrict_lora
+from soo_experiments.soo.lora_subset import apply_adapter_subset, parse_layer_spec, parse_module_spec, restrict_lora
 
 
 def tiny_model():

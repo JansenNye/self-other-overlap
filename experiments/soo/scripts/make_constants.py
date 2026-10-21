@@ -19,9 +19,9 @@ from pathlib import Path
 
 import torch
 
-from selfconcept.common.chat import chat_template_kwargs
-from selfconcept.common.loading import load_causal_lm
-from selfconcept.soo.activations import attn_out_proj, get_decoder_layers
+from soo_experiments.common.chat import chat_template_kwargs
+from soo_experiments.common.loading import load_causal_lm
+from soo_experiments.soo.activations import attn_out_proj, get_decoder_layers
 
 
 def last_token_outputs(model, layer: int, batches) -> torch.Tensor:
@@ -80,7 +80,7 @@ def main():
     ap.add_argument("--pairs", type=Path, required=True, help="jsonl with self_prompt/other_prompt; both members are used")
     ap.add_argument("--adapter", action="append", default=[],
                     help="NAME=PATH[@LAYERS[@MODULES]] of a PEFT adapter; repeatable. LAYERS/MODULES restrict the "
-                         "adapter as in selfconcept.soo.lora_subset (e.g. adapters/seed0@except:32, adapters/seed0@all@q_proj)")
+                         "adapter as in soo_experiments.soo.lora_subset (e.g. adapters/seed0@except:32, adapters/seed0@all@q_proj)")
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
 
@@ -103,7 +103,7 @@ def main():
         path, *subset = target.split("@")
         from peft import PeftModel
 
-        from selfconcept.soo.lora_subset import apply_adapter_subset
+        from soo_experiments.soo.lora_subset import apply_adapter_subset
 
         peft = PeftModel.from_pretrained(model, path)
         subset_stats = apply_adapter_subset(peft, subset[0] if subset else None, subset[1] if len(subset) > 1 else None)

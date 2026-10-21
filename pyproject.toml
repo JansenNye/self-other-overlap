@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "self-other-overlap-experiments"
-version = "0.1.0"
+version = "0.2.0"
 description = "Self-other overlap replication, adapter localization, and fixed-offset experiments"
 readme = "README.md"
 requires-python = ">=3.13"
 license = "MIT"
-authors = [{name = "Jansen Nye"}]
+authors = [{name = "Jansen Nye"}, {name = "Contributors (see NOTICE.md)"}]
 dependencies = [
   "torch>=2.13,<3", "transformers>=5.17,<6", "peft>=0.21,<1",
   "accelerate>=1.15,<2", "numpy>=2.4,<3", "scipy>=1.18,<2",

@@ -12,12 +12,12 @@ import unittest
 
 import torch
 
-from selfconcept.soo.activations import attn_out_proj, get_decoder_layers
-from selfconcept.soo.measure_overlap import main, read_pairs
-from selfconcept.soo.overlap import (
+from soo_experiments.soo.activations import attn_out_proj, get_decoder_layers
+from soo_experiments.soo.measure_overlap import main, read_pairs
+from soo_experiments.soo.overlap import (
     endpoint, last_valid_indices, measure_condition, paired_interval, site_metrics, summarize,
 )
-from selfconcept.soo.steering import PositionalSteering, apply_steering
+from soo_experiments.soo.steering import PositionalSteering, apply_steering
 
 
 def tiny_model():

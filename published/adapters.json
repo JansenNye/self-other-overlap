@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "adapters": [
+    {
+      "name": "mistral-7b-L16",
+      "repo_id": "Arkonyx/soo-mistral-7b-l16",
+      "url": "https://huggingface.co/Arkonyx/soo-mistral-7b-l16",
+      "revision": "d70560392b4839d59ea82876affed02e6546e65a",
+      "base_model": "mistralai/Mistral-7B-Instruct-v0.2",
+      "layer": 16,
+      "seed": 0,
+      "weights_sha256": "d2566cdc9e8eadea83b67648a92fd8e010e2090ba2a0c9bc18fdfc732b753186",
+      "weights_bytes": 13648432
+    },
+    {
+      "name": "gemma4-12b-L24",
+      "repo_id": "Arkonyx/soo-gemma4-12b-l24",
+      "url": "https://huggingface.co/Arkonyx/soo-gemma4-12b-l24",
+      "revision": "a24451b26958ff756118ccc97f40a8d4883d322a",
+      "base_model": "google/gemma-4-12B-it",
+      "layer": 24,
+      "seed": 0,
+      "weights_sha256": "e133b50a0f167dce30cb51b2989aa8770b8a10c753bc0500d4fae59a207a279f",
+      "weights_bytes": 10413312
+    },
+    {
+      "name": "gemma4-31b-L32",
+      "repo_id": "Arkonyx/soo-gemma4-31b-l32",
+      "url": "https://huggingface.co/Arkonyx/soo-gemma4-31b-l32",
+      "revision": "abcee4555d5d52beda994ca2eaa1811002daba37",
+      "base_model": "google/gemma-4-31B-it",
+      "layer": 32,
+      "seed": 0,
+      "weights_sha256": "2e8cd20736a422cb97bad0d8907b1117c169e7efbb7fc2d55cc13ad340af4881",
+      "weights_bytes": 21946168
+    },
+    {
+      "name": "qwen38-27b-L32",
+      "repo_id": "Arkonyx/soo-qwen38-27b-l32",
+      "url": "https://huggingface.co/Arkonyx/soo-qwen38-27b-l32",
+      "revision": "4eed1563e3d55b1bf91611d4b0a2b7e5fdbe49da",
+      "base_model": "Qwen/Qwen3.8-27B",
+      "layer": 32,
+      "seed": 0,
+      "weights_sha256": "b60206844793216ec932b35e3393c57c050cbd3d74d0212853a0d80188512770",
+      "weights_bytes": 17850184
+    },
+    {
+      "name": "kimi-dev-72b-L56",
+      "repo_id": "Arkonyx/soo-kimi-dev-72b-l56",
+      "url": "https://huggingface.co/Arkonyx/soo-kimi-dev-72b-l56",
+      "revision": "9d21dc434e5f874a7a5a0db7cc369ac5699e8fee",
+      "base_model": "moonshotai/Kimi-Dev-72B",
+      "layer": 56,
+      "seed": 0,
+      "weights_sha256": "fcf616c561ff640f24e60be4b44b6d463ca268f26e3c527eec2a166002581df8",
+      "weights_bytes": 32810664
+    }
+  ]
+}

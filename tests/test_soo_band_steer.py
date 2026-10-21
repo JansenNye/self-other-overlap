@@ -11,8 +11,8 @@ import unittest
 
 import torch
 
-from selfconcept.soo.activations import get_decoder_layers
-from selfconcept.soo.steering import (
+from soo_experiments.soo.activations import get_decoder_layers
+from soo_experiments.soo.steering import (
     PositionalSteering, apply_module_steering, attn_proj, get_band_offsets, offset_key, random_matched_offsets,
     steer_modules,
 )
@@ -171,7 +171,7 @@ class CliTests(unittest.TestCase):
         from contextlib import chdir
         from unittest import mock
 
-        from selfconcept.soo import evaluate, measure_overlap
+        from soo_experiments.soo import evaluate, measure_overlap
 
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

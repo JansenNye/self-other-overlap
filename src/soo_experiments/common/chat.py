@@ -7,7 +7,7 @@ thinking off the template pre-closes an empty one, matching gemma-4's default
 and the direct-answer format the SOO pairs and evals assume). An environment
 variable rather than a CLI flag so training, extraction, evaluation and the
 code benchmarks all agree without threading an argument through each entry
-point (the SOO_ prefix is historical; every selfconcept entry point reads it).
+point (the SOO_ prefix is historical; every soo_experiments entry point reads it).
 """
 
 import json

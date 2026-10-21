@@ -10,8 +10,8 @@ import unittest
 
 import torch
 
-from selfconcept.soo.activations import attn_out_proj, get_decoder_layers
-from selfconcept.soo.lora_subset import apply_adapter_subset, fused_qkv_slices
+from soo_experiments.soo.activations import attn_out_proj, get_decoder_layers
+from soo_experiments.soo.lora_subset import apply_adapter_subset, fused_qkv_slices
 
 TARGETS = r"model\.layers\.\d+\.(self_attn\.(q_proj|v_proj)|linear_attn\.in_proj_qkv)"
 

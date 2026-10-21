@@ -20,10 +20,10 @@ from pathlib import Path
 import torch
 
 from make_constants import encode
-from selfconcept.common.loading import load_causal_lm
-from selfconcept.soo.activations import get_decoder_layers
-from selfconcept.soo.lora_subset import LAYER_INDEX, fused_qkv_slices, parse_layer_spec, parse_module_spec
-from selfconcept.soo.steering import offset_key
+from soo_experiments.common.loading import load_causal_lm
+from soo_experiments.soo.activations import get_decoder_layers
+from soo_experiments.soo.lora_subset import LAYER_INDEX, fused_qkv_slices, parse_layer_spec, parse_module_spec
+from soo_experiments.soo.steering import offset_key
 
 
 class DeltaAccumulator:
@@ -133,7 +133,7 @@ def main():
     ap.add_argument("--model", required=True)
     ap.add_argument("--revision")
     ap.add_argument("--adapter", required=True, help="PEFT adapter directory")
-    ap.add_argument("--layers", required=True, help="layer spec as in selfconcept.soo.lora_subset, e.g. range:19-23")
+    ap.add_argument("--layers", required=True, help="layer spec as in soo_experiments.soo.lora_subset, e.g. range:19-23")
     ap.add_argument("--modules", default="q_proj,v_proj")
     ap.add_argument("--pairs", type=Path, required=True, help="jsonl with self_prompt/other_prompt; both members are used")
     ap.add_argument("--out", type=Path, required=True)

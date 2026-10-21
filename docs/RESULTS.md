@@ -15,9 +15,40 @@ The plotting script selects the Gemma-4-12B bisection run
 `bisect-gemma4-12b-L24-20260924T220341Z` and calculates rates from integer counts for
 both room orderings. No rates are typed into the plotting code.
 
-These aggregates do not include raw responses, trained adapters, activation tensors,
-or the first study's complete multi-seed result archive. The first study's training
-and evaluation code, ablation configs, and synthetic prompts are included. Regenerating
-its numerical results requires running those experiments. The second study's counts
-alone cannot reproduce intent-language checks, representation gaps, or bootstrap
-analyses that require individual responses/activations.
+## Check the individual responses
+
+`published/study2-responses.jsonl.gz` contains **459,250 saved model responses**
+from all 1,837 evaluation files represented by the summaries (about 17 MB compressed).
+Each row preserves `example_id`, `response`, and the original `label`, and adds `run`
+and `file` to identify the evaluation cell. The raw response text is unchanged.
+`study2-responses-manifest.json` records each source file's hash and the archive hash.
+
+Recompute every count and rate without installing ML dependencies:
+
+```bash
+python scripts/verify_published_responses.py
+```
+
+To inspect Mistral's constant-replacement outputs and rerun the existing intent-language
+heuristic, extract the selected run and point the original analysis script at it:
+
+```bash
+python scripts/verify_published_responses.py \
+  --extract-run constants-mistral-7b-L16-20260922T175427Z
+python experiments/soo/scripts/intent_language_check.py \
+  outputs/response-review/constants-mistral-7b-L16-20260922T175427Z
+```
+
+Use the committed original/mirrored scenario files and `example_id` to inspect the
+underlying task. An original label is a recorded classifier decision, not a new human
+annotation: read the response text to assess confusion, refusal, or deceptive intent.
+The intent regex is exploratory and is not an independent ground-truth label.
+
+## Remaining gaps
+
+The response archive covers the second study, including its controls and exploratory
+runs. It does not contain the first study's complete multi-seed archive, so it cannot
+independently substantiate all first-post claims about damaged outputs. Those original
+runs must be recovered or repeated. Trained adapters and representation tensors remain
+separate inputs; response records alone do not reproduce representation-gap measurements.
+The five selected adapters are linked in [ARTIFACTS.md](ARTIFACTS.md).

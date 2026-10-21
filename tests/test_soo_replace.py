@@ -12,8 +12,8 @@ import unittest
 
 import torch
 
-from selfconcept.soo.activations import attn_out_proj, get_decoder_layers
-from selfconcept.soo.steering import (
+from soo_experiments.soo.activations import attn_out_proj, get_decoder_layers
+from soo_experiments.soo.steering import (
     PositionalSteering, apply_steering, get_constant, load_constants, random_matched_vector, steer_o_proj,
 )
 

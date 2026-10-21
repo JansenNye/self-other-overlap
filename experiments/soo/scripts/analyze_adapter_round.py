@@ -12,7 +12,7 @@ import sys
 
 import numpy as np
 
-from selfconcept.soo.overlap import paired_interval
+from soo_experiments.soo.overlap import paired_interval
 
 SITES = ()  # derived from the first completed run: hook_after, residual blocks in order, final_norm
 PRIMARY = ("hook_after", "final_norm")
