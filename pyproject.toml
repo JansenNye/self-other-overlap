@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "self-other-overlap-experiments"
+version = "0.1.0"
+description = "Self-other overlap replication, adapter localization, and fixed-offset experiments"
+readme = "README.md"
+requires-python = ">=3.13"
+license = "MIT"
+authors = [{name = "Jansen Nye"}]
+dependencies = [
+  "torch>=2.13,<3", "transformers>=5.17,<6", "peft>=0.21,<1",
+  "accelerate>=1.15,<2", "numpy>=2.4,<3", "scipy>=1.18,<2",
+  "matplotlib>=3.11,<4", "PyYAML>=6,<7", "tqdm>=4.67,<5",
+]
+
+[project.optional-dependencies]
+quantization = ["bitsandbytes>=0.45"]
+capabilities = ["lm_eval>=0.4", "datasets>=3.2"]
+
+[project.urls]
+Research = "https://jansennye.com/research/"
+Repository = "https://github.com/JansenNye/self-other-overlap"
+
+[tool.setuptools.packages.find]
+where = ["src"]

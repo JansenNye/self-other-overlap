@@ -1,0 +1,1019 @@
+[
+  {
+    "run": "adapters-gemma4-12b-L24-20260921T230403Z",
+    "launch_sha256": "3c2e4d86aa1ed5dec70ccc8ac7002f020341f40ebd16c6520b8e27eb7c4a63bd",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24
+  },
+  {
+    "run": "adapters-gemma4-31b-L32-20260921T230237Z",
+    "launch_sha256": "471106bb41a0c2e52cbde0a2f1debd8482a51fda055cf3a924e9c1b0339c1e89",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32
+  },
+  {
+    "run": "adapters-mistral-7b-L16-20260921T230529Z",
+    "launch_sha256": "3818e8516d782771bf79f3059710d1dcd42c12d324c3d76f5e5bd87310c56672",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16
+  },
+  {
+    "run": "adapters-qwen38-L32-20260921T221033Z",
+    "launch_sha256": "a3612cad9a1a0ca3c83b0a675a506c863af019b955aca2e0a7304cb023ce3153",
+    "model": "Qwen/Qwen3.8-27B",
+    "layer": 32
+  },
+  {
+    "run": "adapters-qwen38-L32-off9-20260921T223245Z",
+    "launch_sha256": "acf1f3f0398bffc0fdf987e2ffb8d8f790f8eafdb0c29cefae306f0ce45bfa9c",
+    "model": "Qwen/Qwen3.8-27B",
+    "layer": 32
+  },
+  {
+    "run": "bisect-gemma4-12b-L24-20260924T220341Z",
+    "launch_sha256": "7a1e7eba3dc9e622bbb8a007a69f5c715c7a400a3558f16dfbc608f685bfe31e",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24,
+    "n_layers": 48,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "below-v": "--adapter adapters/seed0 --adapter-layers below:24 --adapter-modules v_proj",
+      "lo-half": "--adapter adapters/seed0 --adapter-layers range:0-11 --adapter-modules v_proj",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:12-23 --adapter-modules v_proj",
+      "q1": "--adapter adapters/seed0 --adapter-layers range:0-5 --adapter-modules v_proj",
+      "q2": "--adapter adapters/seed0 --adapter-layers range:6-11 --adapter-modules v_proj",
+      "q3": "--adapter adapters/seed0 --adapter-layers range:12-17 --adapter-modules v_proj",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:18-23 --adapter-modules v_proj",
+      "band": "--adapter adapters/seed0 --adapter-layers range:19-23 --adapter-modules v_proj",
+      "band-rest": "--adapter adapters/seed0 --adapter-layers range:0-18 --adapter-modules v_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "bisect-gemma4-31b-L32-20260924T220239Z",
+    "launch_sha256": "eb85e25dea85c598f33c14c81e867c569fa9e167af9932c7eed78b5fcb54641a",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "n_layers": 60,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "below-v": "--adapter adapters/seed0 --adapter-layers below:32 --adapter-modules v_proj",
+      "lo-half": "--adapter adapters/seed0 --adapter-layers range:0-15 --adapter-modules v_proj",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:16-31 --adapter-modules v_proj",
+      "q1": "--adapter adapters/seed0 --adapter-layers range:0-7 --adapter-modules v_proj",
+      "q2": "--adapter adapters/seed0 --adapter-layers range:8-15 --adapter-modules v_proj",
+      "q3": "--adapter adapters/seed0 --adapter-layers range:16-23 --adapter-modules v_proj",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:24-31 --adapter-modules v_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "bisect-mistral-7b-L16-20260924T220447Z",
+    "launch_sha256": "5e90e9f492157bb64ae4abc754b4ef44ac50f05e6a0e8eb88334856804300ca5",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "n_layers": 32,
+    "suffix": "i_would",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "below-v": "--adapter adapters/seed0 --adapter-layers below:16 --adapter-modules v_proj",
+      "lo-half": "--adapter adapters/seed0 --adapter-layers range:0-7 --adapter-modules v_proj",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:8-15 --adapter-modules v_proj",
+      "q1": "--adapter adapters/seed0 --adapter-layers range:0-3 --adapter-modules v_proj",
+      "q2": "--adapter adapters/seed0 --adapter-layers range:4-7 --adapter-modules v_proj",
+      "q3": "--adapter adapters/seed0 --adapter-layers range:8-11 --adapter-modules v_proj",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:12-15 --adapter-modules v_proj",
+      "band": "--adapter adapters/seed0 --adapter-layers range:5-13 --adapter-modules v_proj",
+      "band-rest": "--adapter adapters/seed0 --adapter-layers layers:0,1,2,3,4,14,15 --adapter-modules v_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "bisect2-gemma4-31b-L32-20260928T230232Z",
+    "launch_sha256": "3907aecd0932d9d2fcd7887a1385a26f1805ae5e69556033bfb0904f22912eaf",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "n_layers": 60,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:16-31 --adapter-modules v_proj",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:24-31 --adapter-modules v_proj",
+      "u22": "--adapter adapters/seed0 --adapter-layers range:22-31 --adapter-modules v_proj",
+      "u20": "--adapter adapters/seed0 --adapter-layers range:20-31 --adapter-modules v_proj",
+      "u18": "--adapter adapters/seed0 --adapter-layers range:18-31 --adapter-modules v_proj",
+      "t29": "--adapter adapters/seed0 --adapter-layers range:16-29 --adapter-modules v_proj",
+      "t27": "--adapter adapters/seed0 --adapter-layers range:16-27 --adapter-modules v_proj",
+      "t25": "--adapter adapters/seed0 --adapter-layers range:16-25 --adapter-modules v_proj",
+      "mid": "--adapter adapters/seed0 --adapter-layers range:20-27 --adapter-modules v_proj",
+      "split": "--adapter adapters/seed0 --adapter-layers layers:16,17,18,19,24,25,26,27,28,29,30,31 --adapter-modules v_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "constants-gemma4-12b-L24-20260922T175333Z",
+    "launch_sha256": "82521b05e32b7152f0e06f8233984c2dd5358e59c8644a73d350ee2baa2af8c9",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24,
+    "suffix": "room_only",
+    "conditions": [
+      "base",
+      "adapter-seed0",
+      "replace-adapter-s0",
+      "replace-adapter-s1",
+      "replace-adapter-s2",
+      "replace-base-mean",
+      "replace-zero",
+      "replace-random-s0",
+      "replace-random-s1",
+      "replace-random-s2",
+      "replace-adapter-s0-all",
+      "replace-base-mean-all"
+    ],
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "constants-gemma4-31b-L32-20260922T175236Z",
+    "launch_sha256": "1fbde894cced0731ae1f107bd672294cf899950f2c833afb303917ec98de1392",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "suffix": "room_only",
+    "conditions": [
+      "base",
+      "adapter-seed0",
+      "replace-adapter-s0",
+      "replace-adapter-s1",
+      "replace-adapter-s2",
+      "replace-base-mean",
+      "replace-zero",
+      "replace-random-s0",
+      "replace-random-s1",
+      "replace-random-s2",
+      "replace-adapter-s0-all",
+      "replace-base-mean-all"
+    ],
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "constants-mistral-7b-L16-20260922T175427Z",
+    "launch_sha256": "7f2ef8bb0b952dc9bd8d10d909586887374f94bffbb6c4ff325b2c7e995f6f1a",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "suffix": "i_would",
+    "conditions": [
+      "base",
+      "adapter-seed0",
+      "replace-adapter-s0",
+      "replace-adapter-s1",
+      "replace-adapter-s2",
+      "replace-base-mean",
+      "replace-zero",
+      "replace-random-s0",
+      "replace-random-s1",
+      "replace-random-s2",
+      "replace-adapter-s0-all",
+      "replace-base-mean-all"
+    ],
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "dose-gemma4-12b-L24-20260929T221158Z",
+    "launch_sha256": "7b2729df304d4233c815237e0718f2679c39568befbc6e594bbef989fa8f9b1b",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24,
+    "n_layers": 48,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:19-23 --adapter-modules v_proj",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25",
+      "v-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5",
+      "v-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75",
+      "rand-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25 --band-random-seed 0",
+      "rand-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5 --band-random-seed 0",
+      "rand-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75 --band-random-seed 0",
+      "v-prompt-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions prompt --band-alpha 1",
+      "v-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1",
+      "v-content-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 2",
+      "rand-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1 --band-random-seed 0"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "dose-gemma4-31b-L32-20260929T221420Z",
+    "launch_sha256": "c006a99cc3d5893d2d81e8106862eed30e7908d37a8ca56c6479dd72c4a297dd",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "n_layers": 60,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:20-31 --adapter-modules v_proj",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25",
+      "v-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5",
+      "v-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75",
+      "rand-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25 --band-random-seed 0",
+      "rand-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5 --band-random-seed 0",
+      "rand-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75 --band-random-seed 0",
+      "v-prompt-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions prompt --band-alpha 1",
+      "v-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1",
+      "v-content-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 2",
+      "rand-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1 --band-random-seed 0"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "dose-mistral-7b-L16-20260929T221309Z",
+    "launch_sha256": "98e3008f6d0c97fc86361eb262de5fdd1aedcef7297e30886eb5849b6dcd9dc8",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "n_layers": 32,
+    "suffix": "i_would",
+    "conditions": {
+      "base": "",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:5-13 --adapter-modules v_proj",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25",
+      "v-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5",
+      "v-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75",
+      "rand-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25 --band-random-seed 0",
+      "rand-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5 --band-random-seed 0",
+      "rand-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75 --band-random-seed 0",
+      "v-prompt-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions prompt --band-alpha 1",
+      "v-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1",
+      "v-content-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 2",
+      "rand-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1 --band-random-seed 0"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "dose-mistral-7b-L16-20260930T014849Z",
+    "launch_sha256": "bcaaa97b92ee34ba8c20f5c1abed88ed7c43f064267becb6e170563120f4d91f",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "n_layers": 32,
+    "suffix": "i_would",
+    "conditions": {
+      "base": "",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:5-13 --adapter-modules v_proj",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25",
+      "v-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5",
+      "v-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75",
+      "rand-all-a1.25": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.25 --band-random-seed 0",
+      "rand-all-a1.5": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.5 --band-random-seed 0",
+      "rand-all-a1.75": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1.75 --band-random-seed 0",
+      "v-prompt-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions prompt --band-alpha 1",
+      "v-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1",
+      "v-content-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 2",
+      "rand-content-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions content --band-alpha 1 --band-random-seed 0"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "kimi-kimi-dev-72b-L40-20260929T221804Z",
+    "launch_sha256": "088f7d9f36222edad743bba7d0a8ee1e428662f06da7b447cb1301ccabd57979",
+    "model_key": "kimi-dev-72b",
+    "model": "moonshotai/Kimi-Dev-72B",
+    "revision": "8791d7981945752a51f692d66f2bbfb3573c9722",
+    "layer": 40,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter output/checkpoints/kimi-dev-72b/seed0",
+      "only-train": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-layers only:40",
+      "below-train": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-layers below:40",
+      "v-only": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-modules v_proj",
+      "q-only": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-modules q_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "kimi-kimi-dev-72b-L40-20260929T233409Z",
+    "launch_sha256": "e60cefd38b093c41c422bcc67b457dcd6e39178e8e12d295c109d0ceb22d0822",
+    "model_key": "kimi-dev-72b",
+    "model": "moonshotai/Kimi-Dev-72B",
+    "revision": "8791d7981945752a51f692d66f2bbfb3573c9722",
+    "layer": 40,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter output/checkpoints/kimi-dev-72b/seed0",
+      "only-train": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-layers only:40",
+      "below-train": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-layers below:40",
+      "v-only": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-modules v_proj",
+      "q-only": "--adapter output/checkpoints/kimi-dev-72b/seed0 --adapter-modules q_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "kimijoint-kimi-dev-72b-L56-20261001T202619Z",
+    "launch_sha256": "624c5d5642e67bea32870b02bf2d070413a2833149ec46698b70de1858eaf783",
+    "model_key": "kimi-dev-72b",
+    "model": "moonshotai/Kimi-Dev-72B",
+    "revision": "8791d7981945752a51f692d66f2bbfb3573c9722",
+    "layer": 56,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "(carried over)",
+      "adapter-seed0": "(carried over)",
+      "below-train": "(carried over)",
+      "hi-half": "(carried over)",
+      "below-v": "(carried over)",
+      "below-q": "(carried over)",
+      "v-all-a1": "(carried over)",
+      "rand-all-a1": "(carried over)",
+      "q-all-a1": "(carried over)",
+      "jv-all-a0.5": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.5",
+      "rand-all-a0.5": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.5 --band-random-seed 0",
+      "jv-all-a0.25": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.25",
+      "rand-all-a0.25": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.25 --band-random-seed 0",
+      "v-all-a0.5": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.5",
+      "jv-hi-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions all --band-alpha 1",
+      "rand-hi-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions all --band-alpha 1 --band-random-seed 0",
+      "jv-hi-a0.5": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions all --band-alpha 0.5",
+      "rand-hi-a0.5": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions all --band-alpha 0.5 --band-random-seed 0",
+      "jv-all-a0.75": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.75",
+      "jv-all-content-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions content --band-alpha 1",
+      "rand-all-content-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions content --band-alpha 1 --band-random-seed 0",
+      "jv-hi-content-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions content --band-alpha 1",
+      "rand-hi-content-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:28-55 --steer-positions content --band-alpha 1 --band-random-seed 0",
+      "rand-all-a0.75": "--band-deltas output/band_deltas.pt --band-token-mode all --band-module q_proj,v_proj --band-layers range:0-55 --steer-positions all --band-alpha 0.75 --band-random-seed 0"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "perspectives"
+    ],
+    "n_per_scenario": 250,
+    "cells": {
+      "jv-all-a0.25": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.25,
+        "random": false,
+        "reference": "below-train",
+        "control": "rand-all-a0.25"
+      },
+      "jv-all-a0.5": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.5,
+        "random": false,
+        "reference": "below-train",
+        "control": "rand-all-a0.5"
+      },
+      "jv-all-a0.75": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.75,
+        "random": false,
+        "reference": "below-train",
+        "control": "rand-all-a0.75"
+      },
+      "rand-all-a0.25": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.25,
+        "random": true,
+        "reference": "below-train",
+        "control": null
+      },
+      "rand-all-a0.5": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.5,
+        "random": true,
+        "reference": "below-train",
+        "control": null
+      },
+      "rand-all-a0.75": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.75,
+        "random": true,
+        "reference": "below-train",
+        "control": null
+      },
+      "jv-hi-a0.5": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.5,
+        "random": false,
+        "reference": "hi-half",
+        "control": "rand-hi-a0.5"
+      },
+      "jv-hi-a1": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 1,
+        "random": false,
+        "reference": "hi-half",
+        "control": "rand-hi-a1"
+      },
+      "rand-hi-a0.5": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 0.5,
+        "random": true,
+        "reference": "hi-half",
+        "control": null
+      },
+      "rand-hi-a1": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "all",
+        "alpha": 1,
+        "random": true,
+        "reference": "hi-half",
+        "control": null
+      },
+      "jv-all-content-a1": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "content",
+        "alpha": 1,
+        "random": false,
+        "reference": "below-train",
+        "control": "rand-all-content-a1"
+      },
+      "rand-all-content-a1": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "q_proj,v_proj",
+        "positions": "content",
+        "alpha": 1,
+        "random": true,
+        "reference": "below-train",
+        "control": null
+      },
+      "jv-hi-content-a1": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "content",
+        "alpha": 1,
+        "random": false,
+        "reference": "hi-half",
+        "control": "rand-hi-content-a1"
+      },
+      "rand-hi-content-a1": {
+        "band": "hi",
+        "layers": "28-55",
+        "module": "q_proj,v_proj",
+        "positions": "content",
+        "alpha": 1,
+        "random": true,
+        "reference": "hi-half",
+        "control": null
+      },
+      "v-all-a0.5": {
+        "band": "all",
+        "layers": "0-55",
+        "module": "v_proj",
+        "positions": "all",
+        "alpha": 0.5,
+        "random": false,
+        "reference": "below-v",
+        "control": null
+      }
+    },
+    "jobs": {
+      "A": [
+        "jv-all-a0.5",
+        "rand-all-a0.5",
+        "jv-all-a0.25",
+        "rand-all-a0.25",
+        "v-all-a0.5"
+      ],
+      "B": [
+        "jv-hi-a1",
+        "rand-hi-a1",
+        "jv-hi-a0.5",
+        "rand-hi-a0.5",
+        "jv-all-a0.75"
+      ],
+      "C": [
+        "jv-all-content-a1",
+        "rand-all-content-a1",
+        "jv-hi-content-a1",
+        "rand-hi-content-a1",
+        "rand-all-a0.75"
+      ]
+    }
+  },
+  {
+    "run": "kimiloc-kimi-dev-72b-L56-20260930T223131Z",
+    "launch_sha256": "8056de2085e3d8f32a52d719e035769eb891516cb8c74d941e2cf8e029c1e834",
+    "model_key": "kimi-dev-72b",
+    "model": "moonshotai/Kimi-Dev-72B",
+    "revision": "8791d7981945752a51f692d66f2bbfb3573c9722",
+    "layer": 56,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "only-train": "--adapter adapters/seed0 --adapter-layers only:56 --adapter-modules q_proj,v_proj",
+      "below-train": "--adapter adapters/seed0 --adapter-layers below:56 --adapter-modules q_proj,v_proj",
+      "below-v": "--adapter adapters/seed0 --adapter-layers below:56 --adapter-modules v_proj",
+      "below-q": "--adapter adapters/seed0 --adapter-layers below:56 --adapter-modules q_proj",
+      "lo-half": "--adapter adapters/seed0 --adapter-layers range:0-27 --adapter-modules q_proj,v_proj",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:28-55 --adapter-modules q_proj,v_proj",
+      "q1": "--adapter adapters/seed0 --adapter-layers range:0-13 --adapter-modules q_proj,v_proj",
+      "q2": "--adapter adapters/seed0 --adapter-layers range:14-27 --adapter-modules q_proj,v_proj",
+      "q3": "--adapter adapters/seed0 --adapter-layers range:28-41 --adapter-modules q_proj,v_proj",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:42-55 --adapter-modules q_proj,v_proj",
+      "top8": "--adapter adapters/seed0 --adapter-layers range:48-55 --adapter-modules q_proj,v_proj",
+      "top4": "--adapter adapters/seed0 --adapter-layers range:52-55 --adapter-modules q_proj,v_proj",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --steer-positions all --band-alpha 1 --band-module v_proj",
+      "rand-all-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --steer-positions all --band-alpha 1 --band-module v_proj --band-random-seed 0",
+      "q-all-a1": "--band-deltas output/band_deltas.pt --band-token-mode all --steer-positions all --band-alpha 1 --band-module q_proj"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "perspectives"
+    ],
+    "n_per_scenario": 250,
+    "jobs": {
+      "A": [
+        "v-all-a1",
+        "rand-all-a1",
+        "q-all-a1",
+        "below-v",
+        "only-train",
+        "hi-half",
+        "q4"
+      ],
+      "B": [
+        "below-q",
+        "below-train",
+        "lo-half",
+        "q3",
+        "q1",
+        "q2",
+        "top8",
+        "top4"
+      ]
+    }
+  },
+  {
+    "run": "kimisweep-kimi-dev-72b-20260930T171237Z",
+    "launch_sha256": "9076597e5a6f091b78d7902181f02df0b6899d39f67fcfa88dbc1472688793c4",
+    "model_key": "kimi-dev-72b",
+    "model": "moonshotai/Kimi-Dev-72B",
+    "revision": "8791d7981945752a51f692d66f2bbfb3573c9722",
+    "suffix": "room_only",
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250,
+    "jobs": [
+      [
+        24,
+        56,
+        8,
+        72
+      ],
+      [
+        32,
+        48,
+        16,
+        64
+      ]
+    ]
+  },
+  {
+    "run": "layers-gemma4-12b-L24-20260923T210018Z",
+    "launch_sha256": "531efcee54009a1922bee058a72d7e4cd5aaab12136d3f4d6e8cd34755dbbd07",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24,
+    "n_layers": 48,
+    "suffix": "room_only",
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "layers-gemma4-31b-L32-20260923T205921Z",
+    "launch_sha256": "a65182d2ee884fd13f5c32274cca47095b9578cab6f7731f4e8a10550f0bfeff",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "n_layers": 60,
+    "suffix": "room_only",
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "layers-mistral-7b-L16-20260923T210126Z",
+    "launch_sha256": "4ab1c5e146d1d600104778f06ebf5861b3aa2ccafc97d1d74259b08c04405cef",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "n_layers": 32,
+    "suffix": "i_would",
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "qwenloc-qwen38-27b-L32-20260929T180213Z",
+    "launch_sha256": "ef965c7c962893bfac2d1f0165807e04407c5aabacbaa578c7791348535969cd",
+    "model_key": "qwen38-27b",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "layer": 32,
+    "n_layers": 64,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "only-train": "--adapter adapters/seed0 --adapter-layers only:32 --adapter-modules all",
+      "below-train": "--adapter adapters/seed0 --adapter-layers below:32 --adapter-modules all",
+      "below-qkv": "--adapter adapters/seed0 --adapter-layers below:32 --adapter-modules in_proj_qkv",
+      "below-qkv-v": "--adapter adapters/seed0 --adapter-layers below:32 --adapter-modules in_proj_qkv.v",
+      "below-qkv-qk": "--adapter adapters/seed0 --adapter-layers below:32 --adapter-modules in_proj_qkv.qk",
+      "below-attn": "--adapter adapters/seed0 --adapter-layers layers:3,7,11,15,19,23,27,31 --adapter-modules q_proj,v_proj",
+      "below-attn-v": "--adapter adapters/seed0 --adapter-layers layers:3,7,11,15,19,23,27,31 --adapter-modules v_proj",
+      "lo-half": "--adapter adapters/seed0 --adapter-layers range:0-15 --adapter-modules all",
+      "hi-half": "--adapter adapters/seed0 --adapter-layers range:16-31 --adapter-modules all",
+      "q1": "--adapter adapters/seed0 --adapter-layers range:0-7 --adapter-modules all",
+      "q2": "--adapter adapters/seed0 --adapter-layers range:8-15 --adapter-modules all",
+      "q3": "--adapter adapters/seed0 --adapter-layers range:16-23 --adapter-modules all",
+      "q4": "--adapter adapters/seed0 --adapter-layers range:24-31 --adapter-modules all",
+      "u20": "--adapter adapters/seed0 --adapter-layers range:20-31 --adapter-modules all",
+      "top4": "--adapter adapters/seed0 --adapter-layers range:28-31 --adapter-modules all"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "steer-gemma4-12b-L24-20260928T230232Z",
+    "launch_sha256": "0ff3f4c4fa95306b88ed76c6a38fe4751d266f0dae02df3e913d5b2fadfd3dc4",
+    "model_key": "gemma4-12b",
+    "model": "google/gemma-4-12B-it",
+    "revision": "707f0a3b8a3c7ad586ed01e27eafbad8a27dd0f7",
+    "layer": 24,
+    "n_layers": 48,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:19-23 --adapter-modules v_proj",
+      "v-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "v-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2",
+      "rand-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1 --band-random-seed 0",
+      "rand-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2 --band-random-seed 0",
+      "rand-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1 --band-random-seed 0",
+      "rand-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2 --band-random-seed 0",
+      "q-resp-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "q-resp-a2": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "q-all-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode all --steer-positions all --band-alpha 1"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "steer-gemma4-31b-L32-20260929T180338Z",
+    "launch_sha256": "625e986554e0016a814a5401711f6097e36cd57961e0f31f69e9b9be85d8e4e6",
+    "model_key": "gemma4-31b",
+    "model": "google/gemma-4-31B-it",
+    "revision": "842da3794eaa0b77d5f08bae87a17459d91ff475",
+    "layer": 32,
+    "n_layers": 60,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:20-31 --adapter-modules v_proj",
+      "v-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "v-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2",
+      "rand-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1 --band-random-seed 0",
+      "rand-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2 --band-random-seed 0",
+      "rand-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1 --band-random-seed 0",
+      "rand-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2 --band-random-seed 0",
+      "q-resp-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "q-resp-a2": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "q-all-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode all --steer-positions all --band-alpha 1"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "steer-mistral-7b-L16-20260928T230233Z",
+    "launch_sha256": "6c19d8609d35a20a2e2ed2a82f35155dee8bb8abdf25460df62415e23f88b3f0",
+    "model_key": "mistral-7b",
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "revision": "63a8b081895390a26e140280378bc85ec8bce07a",
+    "layer": 16,
+    "n_layers": 32,
+    "suffix": "i_would",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "band-v": "--adapter adapters/seed0 --adapter-layers range:5-13 --adapter-modules v_proj",
+      "v-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "v-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2",
+      "rand-resp-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 1 --band-random-seed 0",
+      "rand-resp-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode last --steer-positions from_last --band-alpha 2 --band-random-seed 0",
+      "rand-all-a1": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 1 --band-random-seed 0",
+      "rand-all-a2": "--band-deltas output/band_deltas.pt --band-module v_proj --band-token-mode all --steer-positions all --band-alpha 2 --band-random-seed 0",
+      "q-resp-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "q-resp-a2": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode last --steer-positions from_last --band-alpha 2",
+      "q-all-a1": "--band-deltas output/band_deltas.pt --band-module q_proj --band-token-mode all --steer-positions all --band-alpha 1"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "steer-qwen38-27b-L32-20260929T221532Z",
+    "launch_sha256": "5e735439d09e911e68e86287bc0f238a7bbc1ac43694a0bc6669ca05a3447bbe",
+    "model_key": "qwen38-27b",
+    "model": "Qwen/Qwen3.8-27B",
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "layer": 32,
+    "n_layers": 64,
+    "suffix": "room_only",
+    "conditions": {
+      "base": "",
+      "adapter-seed0": "--adapter adapters/seed0",
+      "band-qkv": "--adapter adapters/seed0 --adapter-layers range:24-31 --adapter-modules in_proj_qkv",
+      "band-qkv-v": "--adapter adapters/seed0 --adapter-layers range:24-31 --adapter-modules in_proj_qkv.v",
+      "qkv-resp-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode last --steer-positions from_last --band-alpha 1",
+      "qkv-all-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions all --band-alpha 1",
+      "qkv-all-a1.5": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions all --band-alpha 1.5",
+      "qkv-all-a2": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions all --band-alpha 2",
+      "v-all-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv.v --band-token-mode all --steer-positions all --band-alpha 1",
+      "v-all-a2": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv.v --band-token-mode all --steer-positions all --band-alpha 2",
+      "qk-all-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv.qk --band-token-mode all --steer-positions all --band-alpha 1",
+      "rand-all-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions all --band-alpha 1 --band-random-seed 0",
+      "rand-all-a2": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions all --band-alpha 2 --band-random-seed 0",
+      "qkv-content-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions content --band-alpha 1",
+      "qkv-prompt-a1": "--band-deltas output/band_deltas.pt --band-module in_proj_qkv --band-token-mode all --steer-positions prompt --band-alpha 1"
+    },
+    "orientations": [
+      "orig",
+      "mirrored"
+    ],
+    "scenarios": [
+      "main",
+      "treasure_hunt",
+      "perspectives"
+    ],
+    "n_per_scenario": 250
+  },
+  {
+    "run": "subspace-original-qwen38-L31-20260918T211526Z",
+    "launch_sha256": "7bcaa78dade05ba369096c1b3bcb5cf9021dbcd087ca74852775f2fc75708e1e"
+  }
+]
