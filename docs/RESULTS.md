@@ -1,5 +1,8 @@
 # Archived results
 
+The first study now has a separate [recovered archive and verifier](STUDY1.md):
+38,700 responses and supporting records. The sections below describe the second study.
+
 `published/study2-summaries.json` contains 1,837 aggregate evaluation records from
 30 frozen mechanism-study run directories. Each record identifies its original run
 and filename, source SHA-256, model, scenario, sample size, counts and rates.
@@ -46,9 +49,9 @@ The intent regex is exploratory and is not an independent ground-truth label.
 
 ## Remaining gaps
 
-The response archive covers the second study, including its controls and exploratory
-runs. It does not contain the first study's complete multi-seed archive, so it cannot
-independently substantiate all first-post claims about damaged outputs. Those original
-runs must be recovered or repeated. Trained adapters and representation tensors remain
-separate inputs; response records alone do not reproduce representation-gap measurements.
-The five selected adapters are linked in [ARTIFACTS.md](ARTIFACTS.md).
+This response archive covers the second study, including controls and exploratory runs.
+First-study records are now available separately; their coverage and remaining missing
+weights are documented in [STUDY1.md](STUDY1.md). Representation tensors and complete
+frozen-run directories remain separate inputs; response records alone do not reproduce
+representation-gap measurements. The five selected mechanism-study adapters are linked
+in [ARTIFACTS.md](ARTIFACTS.md).

@@ -28,7 +28,7 @@ python -m pip install -e .
 The tested package versions are in `requirements-tested.txt`. CUDA dependencies and
 cluster environment settings are not forced by this package. Set `HF_HOME` or
 `HF_HUB_OFFLINE=1` yourself if needed. Model downloads may require accepting the model
-publisher's access terms. The second study's saved evaluation responses are bundled; trained checkpoints remain separate.
+publisher's access terms. Both studies' recovered evaluation responses are bundled; trained adapters are linked separately.
 
 ## Start with the data and software tests
 
@@ -40,10 +40,13 @@ tests: they construct tiny random models locally.
 python -m unittest discover -s tests -p 'test_soo_*.py' -v
 python scripts/plot_published_results.py
 python scripts/verify_published_responses.py
+python scripts/verify_study1.py
 ```
 
 The figure is regenerated from archived aggregate counts, not by running a language model.
-See `docs/RESULTS.md` for their origin and scope.
+See [RESULTS.md](docs/RESULTS.md) for the mechanism study and
+[STUDY1.md](docs/STUDY1.md) for 38,700 recovered first-study responses, judge checks,
+training logs, capability results, and five Mistral adapters.
 
 The two token-loss definitions and the padding limitation are documented in
 [the methods notes](docs/EXPERIMENTS.md#loss-implementation-and-padding).

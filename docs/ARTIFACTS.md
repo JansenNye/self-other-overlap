@@ -5,8 +5,9 @@
 The second study's 459,250 saved responses are committed in
 [`published/study2-responses.jsonl.gz`](../published/study2-responses.jsonl.gz), with
 checksums and per-file provenance. See [RESULTS.md](RESULTS.md) for the standard-library
-verifier, response extraction, and intent-language analysis commands. The archive does
-not include the first study's complete multi-seed responses.
+verifier, response extraction, and intent-language analysis commands. The separate [first-study archive](STUDY1.md) adds 38,700 recovered responses,
+training logs, judge decisions, and capability results. Its coverage is explicitly
+inventoried rather than assumed complete.
 
 ## Five trained adapters
 
@@ -45,3 +46,11 @@ Repeat with `experiments/soo/data/eval_mirrored` and a different tag. Use the mo
 revision, and checksum entries in the artifact manifest for the other adapters.
 The base-model identifier, loss, layer, and generation settings must match the
 [experiment map](EXPERIMENTS.md); a Hub adapter revision pins the adapter, not its base model.
+
+## First-study Mistral seeds
+
+The Mistral Hub repository now also includes seeds 1–4 in `seeds/seed1` through
+`seeds/seed4`. Seed 0 remains at the root, so the older pinned downloads above
+remain valid. See [STUDY1.md](STUDY1.md) and
+[`published/study1-adapters.json`](../published/study1-adapters.json) for the new
+pinned revision, checksums, provenance limits, and first-study coverage.

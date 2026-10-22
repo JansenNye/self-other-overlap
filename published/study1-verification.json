@@ -1,0 +1,45 @@
+{
+  "files": 1535,
+  "evaluation_files": 630,
+  "responses": 38700,
+  "evaluation_file_counts_by_n": {
+    "50": 594,
+    "250": 36
+  },
+  "evaluation_file_counts_by_model": {
+    "allenai/OLMo-2-0425-1B-Instruct": 67,
+    "google/gemma-2-27b-it": 66,
+    "mistralai/Mistral-7B-Instruct-v0.2": 187,
+    "meta-models/Muse-Glimmer-30B": 170,
+    "allenai/OLMo-2-1124-7B-Instruct": 140
+  },
+  "mistral_l16_original_deception_percent": [
+    11.2,
+    14.8,
+    6.0,
+    1.6,
+    16.0
+  ],
+  "mistral_l16_mean_percent": 9.92,
+  "mistral_l16_sample_sd_percent": 6.062342781466584,
+  "mistral_l16_mirrored_deception_percent": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "judge_samples": 120,
+  "judge_agreement": 112,
+  "judge_confusion_judge_classifier": {
+    "deceptive/deceptive": 38,
+    "honest/honest": 52,
+    "other/other": 22,
+    "other/honest": 5,
+    "other/deceptive": 3
+  },
+  "training_logs": 98,
+  "capability_files": 8,
+  "latent_measurement_files": 24,
+  "interpretation": "Verifies checksums, recorded labels against summaries, and saved judge agreement; does not independently adjudicate labels or regenerate model outputs."
+}

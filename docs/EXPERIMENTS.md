@@ -61,7 +61,7 @@ done
 The first post's capability checks use the external `lm_eval` harness (optional
 `capabilities` dependencies), with ARC, HellaSwag and MMLU. The second post did not
 run capability benchmarks. Its Perspectives control is a task-specific theory-of-mind
-check, not a general capability guarantee. The archived LLM-judge calls and the first study's full response archive are not bundled. The second study's raw responses are included; see `RESULTS.md`.
+check, not a general capability guarantee. The recovered first-study responses and saved judge decisions are now bundled; full judge request metadata is not. See [STUDY1.md](STUDY1.md) for exact coverage and [RESULTS.md](RESULTS.md) for the second study.
 
 ## Second post: selected adapters
 
@@ -182,7 +182,7 @@ All script paths below are relative to `experiments/soo/scripts/`.
 
 | Post section / table | Source scripts and run families | Required inputs |
 |---|---|---|
-| First post: replication and confounds | `train.py` / `evaluate.py` in the package; `paired_tests.py` and `rescore.py` | Original first-study multiseed responses are not fully archived in this release. |
+| First post: replication and confounds | `train.py` / `evaluate.py` in the package; `paired_tests.py` and `rescore.py` | 630 recovered response files and supporting records; see [STUDY1.md](STUDY1.md) for sample sizes and gaps. |
 | Adapter setup and burglar-task results | Training logs in the public adapter bundles; base/adapter rows of `analyze_layer_round.py`, `analyze_bisect_round.py` and `analyze_kimi_loc.py` (`layers-*`, `qwenloc-*`, `kimiloc-*`) | Evaluation summaries; training logs for recipe columns. |
 | Representation changes at the training layer | `analyze_adapter_round.py` (`adapters-*`, including endpoint-offset follow-ups) | Per-pair measurements and summaries, not just behavioral responses. |
 | Constant replacements do not reproduce the adapters' behavior | `analyze_constant_round.py`, then `intent_language_check.py` (`constants-*`) | Summaries and response JSONL; optional constant statistics. |

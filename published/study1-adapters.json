@@ -1,0 +1,113 @@
+{
+  "repo_id": "Arkonyx/soo-mistral-7b-l16",
+  "revision": "03892943d80706f2f57a611428ac7b67a6ea6bac",
+  "url": "https://huggingface.co/Arkonyx/soo-mistral-7b-l16",
+  "provenance": "Training logs and adapter configurations match the recovered historical records byte-for-byte for all five seeds. Weights match duplicate later frozen copies. The historical Git snapshot did not store weight bytes, so it cannot independently establish historical weight checksums. No retraining was performed.",
+  "seeds": [
+    {
+      "seed": 0,
+      "subdirectory": ".",
+      "files": [
+        {
+          "path": "adapter_model.safetensors",
+          "bytes": 13648432,
+          "sha256": "d2566cdc9e8eadea83b67648a92fd8e010e2090ba2a0c9bc18fdfc732b753186"
+        },
+        {
+          "path": "adapter_config.json",
+          "bytes": 1088,
+          "sha256": "fc6140678fc3239ecf9217051af8c48c056cffe2999b61885184c66860d63117"
+        },
+        {
+          "path": "train_log.json",
+          "bytes": 736,
+          "sha256": "a7d347ff7cb46f2fe3f4c60fe820a896600a88197308e16914576fee6959e8ea"
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "subdirectory": "seeds/seed1",
+      "files": [
+        {
+          "path": "seeds/seed1/adapter_model.safetensors",
+          "bytes": 13648432,
+          "sha256": "fef64a53dcf64f66d7e9ebc655c594e13f71e01cbb59da822f11ffeaea8d784f"
+        },
+        {
+          "path": "seeds/seed1/adapter_config.json",
+          "bytes": 1088,
+          "sha256": "83cf8275c54d379efa2b0028bc04555e9082de7a437452f3632e25ba18b9342f"
+        },
+        {
+          "path": "seeds/seed1/train_log.json",
+          "bytes": 733,
+          "sha256": "357d7a4c611e83979746cc67b5e9928e82a27f3d965bce3394486a7a96eff9d0"
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "subdirectory": "seeds/seed2",
+      "files": [
+        {
+          "path": "seeds/seed2/adapter_model.safetensors",
+          "bytes": 13648432,
+          "sha256": "752ff91219b88540a232c92d885b896fe2ff917b35bcce0930f787a37a24611c"
+        },
+        {
+          "path": "seeds/seed2/adapter_config.json",
+          "bytes": 1088,
+          "sha256": "fc6140678fc3239ecf9217051af8c48c056cffe2999b61885184c66860d63117"
+        },
+        {
+          "path": "seeds/seed2/train_log.json",
+          "bytes": 735,
+          "sha256": "e575e1ada8c25c7ee0a93491489b7a8e07dc20236d6202a7b834ec1550d6954c"
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "subdirectory": "seeds/seed3",
+      "files": [
+        {
+          "path": "seeds/seed3/adapter_model.safetensors",
+          "bytes": 13648432,
+          "sha256": "c2dcff6a020ed6b391388b1bf3638c08489c1040f8c49668da03b81fc3758102"
+        },
+        {
+          "path": "seeds/seed3/adapter_config.json",
+          "bytes": 1088,
+          "sha256": "fc6140678fc3239ecf9217051af8c48c056cffe2999b61885184c66860d63117"
+        },
+        {
+          "path": "seeds/seed3/train_log.json",
+          "bytes": 735,
+          "sha256": "1363450c9aa283bd13bcfbd4c6b66e3bfbaf985a7c4f01cf598575bd04da62ea"
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "subdirectory": "seeds/seed4",
+      "files": [
+        {
+          "path": "seeds/seed4/adapter_model.safetensors",
+          "bytes": 13648432,
+          "sha256": "859a813115e2dc77420dbc7c1007088f2af56ac0d7ca853171db8fd59dfd4740"
+        },
+        {
+          "path": "seeds/seed4/adapter_config.json",
+          "bytes": 1088,
+          "sha256": "fc6140678fc3239ecf9217051af8c48c056cffe2999b61885184c66860d63117"
+        },
+        {
+          "path": "seeds/seed4/train_log.json",
+          "bytes": 735,
+          "sha256": "64d2843ab732119770cc668e8d9e6b375e1c46815bd7d879ba1108d1a345cc2d"
+        }
+      ]
+    }
+  ]
+}
