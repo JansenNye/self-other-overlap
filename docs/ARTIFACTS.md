@@ -54,3 +54,8 @@ The Mistral Hub repository now also includes seeds 1–4 in `seeds/seed1` throug
 remain valid. See [STUDY1.md](STUDY1.md) and
 [`published/study1-adapters.json`](../published/study1-adapters.json) for the new
 pinned revision, checksums, provenance limits, and first-study coverage.
+
+## Mechanism-study supplement
+
+[MECHANISM.md](MECHANISM.md) links the saved activations, intervention tensors,
+additional adapter artifacts, and CPU analysis inputs from all 30 indexed runs.

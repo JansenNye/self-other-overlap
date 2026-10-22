@@ -167,7 +167,8 @@ the token measured. `--subspace-ranks` enables fitted subspace removal controls.
 The `analyze_*_round.py` scripts retain the original frozen-run analysis interfaces;
 they expect the corresponding run manifest and raw outputs, not only the public
 aggregate summary. Evaluation responses can be extracted from the committed archive (see `RESULTS.md`);
-full frozen-run manifests and activation measurements are separate inputs.
+the [mechanism supplement](MECHANISM.md) now supplies the saved run metadata,
+per-pair measurements and optional tensor artifacts.
 
 ## Which analysis supports each post table?
 
@@ -195,5 +196,6 @@ All script paths below are relative to `experiments/soo/scripts/`.
 The shared module deliberately preserves separate rules for constant replacement,
 Kimi layer selection and Kimi truncation. They are not interchangeable analyses.
 Each script's module docstring gives its positional arguments. Raw behavioral
-responses are public; representation tensors and complete frozen-run directories
-remain separate inputs. Missing inputs must not be interpreted as a null result.
+responses, per-pair measurements, run metadata and optional tensor artifacts are
+now public in [MECHANISM.md](MECHANISM.md); complete executable environments remain
+separate. Missing inputs must not be interpreted as a null result.

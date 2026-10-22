@@ -46,7 +46,9 @@ python scripts/verify_study1.py
 The figure is regenerated from archived aggregate counts, not by running a language model.
 See [RESULTS.md](docs/RESULTS.md) for the mechanism study and
 [STUDY1.md](docs/STUDY1.md) for 38,700 recovered first-study responses, judge checks,
-training logs, capability results, and five Mistral adapters.
+training logs, capability results, and five Mistral adapters. The
+[mechanism-study supplement](docs/MECHANISM.md) adds the saved per-pair measurements,
+run metadata, intervention tensors and adapters for all 30 indexed runs.
 
 The two token-loss definitions and the padding limitation are documented in
 [the methods notes](docs/EXPERIMENTS.md#loss-implementation-and-padding).

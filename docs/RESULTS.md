@@ -51,7 +51,8 @@ The intent regex is exploratory and is not an independent ground-truth label.
 
 This response archive covers the second study, including controls and exploratory runs.
 First-study records are now available separately; their coverage and remaining missing
-weights are documented in [STUDY1.md](STUDY1.md). Representation tensors and complete
-frozen-run directories remain separate inputs; response records alone do not reproduce
-representation-gap measurements. The five selected mechanism-study adapters are linked
+weights are documented in [STUDY1.md](STUDY1.md). The [mechanism supplement](MECHANISM.md)
+now provides saved per-pair measurements, representation tensors and run metadata.
+Response records alone do not reproduce representation-gap measurements; use those
+additional inputs. Complete executable environments remain separate. The five selected mechanism-study adapters are linked
 in [ARTIFACTS.md](ARTIFACTS.md).

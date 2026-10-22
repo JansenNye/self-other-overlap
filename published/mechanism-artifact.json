@@ -1,0 +1,18 @@
+{
+  "repo_id": "Arkonyx/self-other-overlap-mechanism",
+  "repo_type": "dataset",
+  "revision": "f7a59a014d282da2eda9db776ea075f87e5c697c",
+  "url": "https://huggingface.co/datasets/Arkonyx/self-other-overlap-mechanism",
+  "archives": [
+    {
+      "file": "mechanism-records.tar.gz",
+      "bytes": 32839130,
+      "sha256": "41d6edf9ac92ebd4e11e24ccf49dbd60231016b07d04979b4ead497707e0815e"
+    },
+    {
+      "file": "mechanism-tensors.tar.gz",
+      "bytes": 3598261265,
+      "sha256": "605a92275dcb3cf9b5a45afe24551e1d3ea81e3c6a85c1fbaa60e071d5b0a8b0"
+    }
+  ]
+}

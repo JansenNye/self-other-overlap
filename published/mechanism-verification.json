@@ -1,0 +1,11 @@
+{
+  "indexed_runs": 30,
+  "saved_round_analyses_replayed": 30,
+  "result": "All replayed scientific outputs match archived JSON.",
+  "comparison_normalizations": [
+    "Omit methodology note fields clarified in the public code",
+    "Set omitted incomplete flag to false only for verdicts whose recorded checks are all complete"
+  ],
+  "model_runs_performed": false,
+  "scope": "CPU reanalysis of saved measurements and responses, not independent measurement or label validation."
+}
